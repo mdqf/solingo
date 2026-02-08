@@ -1,0 +1,622 @@
+{% extends "base.html" %}
+
+{% block title %}تمرین پیشرفته - Solingo{% endblock %}
+
+{% block extra_css %}
+<style>
+    .exercise-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .exercise-header {
+        background: linear-gradient(135deg, #4a6fa5, #6c8bc7);
+        color: white;
+        border-radius: 15px 15px 0 0;
+        padding: 20px;
+    }
+    
+    .exercise-body {
+        padding: 30px;
+        background: white;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .pronunciation-box {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        border-left: 4px solid #4a6fa5;
+        margin: 20px 0;
+    }
+    
+    .sentence-box {
+        background: #e9f7ef;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        border: 2px dashed #28a745;
+    }
+    
+    .blank {
+        display: inline-block;
+        min-width: 100px;
+        border-bottom: 3px solid #4a6fa5;
+        margin: 0 5px;
+        text-align: center;
+        padding: 0 10px;
+    }
+    
+    .audio-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="exercise-wrapper">
+    <!-- هدر تمرین -->
+    <div class="exercise-header" id="exerciseHeader">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h4 id="exerciseType">تمرین</h4>
+                <small id="exerciseHint"></small>
+            </div>
+            <div class="text-end">
+                <div class="badge bg-light text-dark fs-6" id="progressBadge">
+                    <span id="currentPos">1</span>/<span id="totalPos">?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- بدنه تمرین -->
+    <div class="exercise-body">
+        <!-- سوال -->
+        <div class="mb-4">
+            <h3 id="questionText" class="text-center mb-4"></h3>
+            
+            <!-- جعبه تلفظ (برای تمرین شنیداری) -->
+            <div class="pronunciation-box text-center" id="pronunciationBox" style="display: none;">
+                <div class="mb-3">
+                    <button class="btn btn-primary audio-btn" id="playAudioBtn">
+                        <i class="bi bi-volume-up"></i>
+                    </button>
+                </div>
+                <p class="mb-0" id="pronunciationText"></p>
+            </div>
+            
+            <!-- جعبه جمله (برای تکمیل جمله) -->
+            <div class="sentence-box text-center" id="sentenceBox" style="display: none;">
+                <h5 id="sentenceText" class="mb-3"></h5>
+                <p class="text-muted mb-0" id="sentenceTranslation"></p>
+            </div>
+        </div>
+        
+        <!-- گزینه‌ها -->
+        <div id="optionsArea" class="mb-4"></div>
+        
+        <!-- ورودی تایپ -->
+        <div id="typingArea" class="mb-4" style="display: none;">
+            <div class="text-center">
+                <input type="text" 
+                       class="form-control form-control-lg text-center" 
+                       id="typingInput"
+                       placeholder="پاسخ خود را اینجا بنویسید..."
+                       style="font-size: 1.5rem; padding: 15px;">
+                <div class="mt-2" id="typingHint"></div>
+            </div>
+        </div>
+        
+        <!-- دکمه‌های کنترلی -->
+        <div class="d-flex justify-content-between mt-5">
+            <button class="btn btn-outline-secondary" id="skipBtn">
+                <i class="bi bi-skip-forward me-1"></i>رد کردن
+            </button>
+            
+            <div>
+                <button class="btn btn-outline-primary me-2" id="hintBtn">
+                    <i class="bi bi-lightbulb me-1"></i>راهنمایی
+                </button>
+                <button class="btn btn-primary" id="submitBtn">
+                    تایید پاسخ <i class="bi bi-check-lg ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- مودال راهنمایی -->
+<div class="modal fade" id="hintModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="bi bi-lightbulb text-warning me-2"></i>راهنمایی
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="hintContent"></div>
+        </div>
+    </div>
+</div>
+
+<!-- مودال نتیجه -->
+<div class="modal fade" id="resultModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" id="resultHeader">
+                <!-- با JavaScript پر می‌شود -->
+            </div>
+            <div class="modal-body text-center" id="resultBody">
+                <!-- با JavaScript پر می‌شود -->
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" id="nextBtn">
+                    ادامه <i class="bi bi-arrow-left ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- مودال پایان جلسه -->
+<div class="modal fade" id="sessionCompleteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                    <i class="bi bi-trophy me-2"></i>تبریک!
+                </h5>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-emoji-laughing display-1 text-success mb-3"></i>
+                <h4>جلسه تمرین تکمیل شد!</h4>
+                <div class="mt-4" id="sessionStats"></div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a href="{{ url_for('learning.dashboard') }}" class="btn btn-primary">
+                    <i class="bi bi-speedometer2 me-2"></i>بازگشت به داشبورد
+                </a>
+                <button type="button" class="btn btn-outline-primary" id="newSessionBtn">
+                    <i class="bi bi-plus-circle me-2"></i>جلسه جدید
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentExercise = null;
+let currentWordData = null;
+let userAnswer = null;
+let sessionId = null;
+let currentPosition = 1;
+let totalExercises = 0;
+
+$(document).ready(function() {
+    // شروع جلسه پیشرفته
+    startAdvancedSession();
+    
+    // Event Listeners
+    $('#submitBtn').click(submitAnswer);
+    $('#skipBtn').click(skipExercise);
+    $('#hintBtn').click(showHint);
+    $('#nextBtn').click(loadNextExercise);
+    $('#newSessionBtn').click(startNewSession);
+    $('#playAudioBtn').click(playAudio);
+    
+    // کلید Enter برای تایپینگ
+    $(document).keypress(function(e) {
+        if (e.which == 13 && $('#typingInput').is(':focus')) {
+            submitAnswer();
+        }
+    });
+});
+
+function startAdvancedSession() {
+    // بررسی نوع جلسه از session
+    const isPractice = sessionStorage.getItem('is_practice') || false;
+    
+    let apiUrl = "{{ url_for('learning.api_start_session') }}";
+    if (isPractice) {
+        apiUrl = "{{ url_for('learning.api_start_practice_session') }}";
+    }
+    
+    $.ajax({
+        url: apiUrl,
+        type: 'GET',
+        success: function(response) {
+            if (response.success) {
+                loadExercise(response);
+            } else {
+                showNoWordsModal(response.message);
+            }
+        },
+        error: function() {
+            showErrorModal('خطا در شروع جلسه');
+        }
+    });
+}
+
+function showNoWordsModal() {
+    // نمایش مودال که کلمه‌ای برای یادگیری نیست
+    const modalHtml = `
+        <div class="modal fade" id="noWordsModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title">
+                            <i class="bi bi-exclamation-triangle me-2"></i>کلمه‌ای برای یادگیری نیست
+                        </h5>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="bi bi-emoji-neutral display-1 text-warning mb-3"></i>
+                        <h4>همه کلمات را یاد گرفته‌اید!</h4>
+                        <p class="lead">آفرین! شما تمام کلمات این سطح را یاد گرفته‌اید.</p>
+                        
+                        <div class="mt-4">
+                            <a href="{{ url_for('load_vocabulary') }}" class="btn btn-primary">
+                                <i class="bi bi-cloud-arrow-down me-2"></i>بارگذاری کلمات بیشتر
+                            </a>
+                            <a href="{{ url_for('learning.dashboard') }}" class="btn btn-outline-primary ms-2">
+                                بازگشت به داشبورد
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // اضافه کردن مودال به صفحه
+    $('body').append(modalHtml);
+    $('#noWordsModal').modal('show');
+    
+    // حذف مودال بعد از بسته شدن
+    $('#noWordsModal').on('hidden.bs.modal', function() {
+        $(this).remove();
+        window.location.href = "{{ url_for('learning.dashboard') }}";
+    });
+}
+
+function loadExercise(data) {
+    currentExercise = data.exercise;
+    currentWordData = data.word_data;
+    sessionId = data.session_id;
+    currentPosition = data.position;
+    totalExercises = data.total;
+    
+    // بروزرسانی وضعیت
+    updateProgress();
+    
+    // نمایش تمرین
+    displayAdvancedExercise(currentExercise);
+}
+
+function displayAdvancedExercise(exercise) {
+    // پاک کردن مناطق قبلی
+    $('#optionsArea').empty().hide();
+    $('#typingArea').hide();
+    $('#pronunciationBox').hide();
+    $('#sentenceBox').hide();
+    
+    // تنظیم هدر
+    $('#exerciseType').text(getExerciseTypeText(exercise.type));
+    $('#exerciseHint').text(getExerciseHint(exercise));
+    $('#questionText').text(exercise.question);
+    
+    // نمایش منطقه مناسب بر اساس نوع تمرین
+    switch(exercise.type) {
+        case 'multiple_choice':
+        case 'article_choice':
+        case 'sentence_completion':
+        case 'listening':
+            displayOptions(exercise);
+            break;
+            
+        case 'typing':
+            displayTyping(exercise);
+            break;
+    }
+    
+    // نمایش راهنمایی‌های خاص
+    if (exercise.type === 'listening') {
+        $('#pronunciationText').text(exercise.pronunciation || '');
+        $('#pronunciationBox').show();
+    }
+    
+    if (exercise.type === 'sentence_completion') {
+        displaySentenceCompletion(exercise);
+    }
+    
+    // تنظیم رنگ هدر بر اساس نوع تمرین
+    setHeaderColor(exercise.type);
+}
+
+function getExerciseTypeText(type) {
+    const types = {
+        'multiple_choice': 'چندگزینه‌ای',
+        'typing': 'تایپینگ',
+        'article_choice': 'انتخاب مقاله',
+        'sentence_completion': 'تکمیل جمله',
+        'listening': 'شنیداری',
+        'recognition': 'تشخیص'
+    };
+    return types[type] || 'تمرین';
+}
+
+function getExerciseHint(exercise) {
+    if (exercise.hint) {
+        return `راهنمایی: ${exercise.hint}`;
+    }
+    return '';
+}
+
+function displayOptions(exercise) {
+    let html = '<div class="row g-3">';
+    
+    exercise.options.forEach((option, index) => {
+        html += `
+            <div class="col-md-6">
+                <div class="option-card" data-option="${option}">
+                    <div class="card h-100 text-center p-3">
+                        <h5 class="mb-0">${option}</h5>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    $('#optionsArea').html(html).show();
+    
+    // Event listeners برای گزینه‌ها
+    $('.option-card').click(function() {
+        $('.option-card .card').removeClass('border-primary');
+        $(this).find('.card').addClass('border-primary border-3');
+        userAnswer = $(this).data('option');
+    });
+}
+
+function displayTyping(exercise) {
+    $('#typingInput').val('');
+    $('#typingArea').show();
+    
+    if (exercise.hint) {
+        $('#typingHint').html(`<small class="text-muted">${exercise.hint}</small>`);
+    }
+    
+    // فوکوس روی فیلد تایپ
+    setTimeout(() => {
+        $('#typingInput').focus();
+    }, 100);
+}
+
+function displaySentenceCompletion(exercise) {
+    let sentenceHtml = exercise.sentence;
+    
+    // جایگزین کردن blank با المان مناسب
+    if (sentenceHtml.includes('__________')) {
+        sentenceHtml = sentenceHtml.replace('__________', '<span class="blank"></span>');
+    }
+    
+    $('#sentenceText').html(sentenceHtml);
+    
+    if (exercise.translation) {
+        $('#sentenceTranslation').text(`ترجمه: ${exercise.translation}`);
+    }
+    
+    $('#sentenceBox').show();
+}
+
+function setHeaderColor(exerciseType) {
+    const colors = {
+        'multiple_choice': '#4a6fa5',
+        'typing': '#28a745',
+        'article_choice': '#17a2b8',
+        'sentence_completion': '#ffc107',
+        'listening': '#dc3545',
+        'recognition': '#6c757d'
+    };
+    
+    const color = colors[exerciseType] || '#4a6fa5';
+    $('.exercise-header').css('background', `linear-gradient(135deg, ${color}, ${adjustColor(color, 20)})`);
+}
+
+function adjustColor(color, amount) {
+    // ساده‌سازی: اضافه کردن روشنایی
+    return color; // در نسخه کامل تر پیاده‌سازی می‌شود
+}
+
+function updateProgress() {
+    $('#currentPos').text(currentPosition);
+    $('#totalPos').text(totalExercises);
+    
+    const progressPercent = (currentPosition / totalExercises) * 100;
+    $('#progressBadge').css('background', `linear-gradient(90deg, #4a6fa5 ${progressPercent}%, #e9ecef ${progressPercent}%)`);
+}
+
+function submitAnswer() {
+    if (!userAnswer && currentExercise.type !== 'typing') {
+        alert('لطفاً ابتدا پاسخ خود را انتخاب کنید');
+        return;
+    }
+    
+    if (currentExercise.type === 'typing') {
+        userAnswer = $('#typingInput').val().trim();
+        if (!userAnswer) {
+            alert('لطفاً پاسخ خود را بنویسید');
+            return;
+        }
+    }
+    
+    // غیرفعال کردن دکمه‌ها
+    $('#submitBtn').prop('disabled', true);
+    $('#skipBtn').prop('disabled', true);
+    
+    // ارسال پاسخ
+    $.ajax({
+        url: "{{ url_for('learning.submit_answer') }}",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            user_word_id: currentWordData.user_word_id,
+            answer: userAnswer,
+            exercise_type: currentExercise.type
+        }),
+        success: function(response) {
+            showResult(response);
+        }
+    });
+}
+
+function skipExercise() {
+    // رد کردن تمرین فعلی
+    userAnswer = null;
+    loadNextExercise();
+}
+
+function showHint() {
+    // نمایش راهنمایی
+    let hintContent = '';
+    
+    if (currentExercise.type === 'multiple_choice') {
+        hintContent = `<p>کلمه مورد نظر ${currentWordData.part_of_speech || 'یک کلمه'} است.</p>`;
+        if (currentWordData.definition) {
+            hintContent += `<p>تعریف آلمانی: ${currentWordData.definition}</p>`;
+        }
+    } else if (currentExercise.type === 'typing') {
+        hintContent = `<p>تلفظ: ${currentWordData.ipa || '---'}</p>`;
+        if (currentWordData.article) {
+            hintContent += `<p>مقاله: ${currentWordData.article}</p>`;
+        }
+    } else if (currentExercise.type === 'article_choice') {
+        hintContent = `<p>جمع کلمه: ${currentWordData.plural || '---'}</p>`;
+    }
+    
+    if (!hintContent) {
+        hintContent = '<p>راهنمایی خاصی برای این تمرین وجود ندارد.</p>';
+    }
+    
+    $('#hintContent').html(hintContent);
+    $('#hintModal').modal('show');
+}
+
+function showResult(response) {
+    const isCorrect = response.correct;
+    
+    // تنظیم هدر نتیجه
+    if (isCorrect) {
+        $('#resultHeader').html(`
+            <h5 class="modal-title text-success">
+                <i class="bi bi-check-circle-fill me-2"></i>آفرین!
+            </h5>
+        `);
+        
+        $('#resultBody').html(`
+            <i class="bi bi-emoji-smile display-1 text-success mb-3"></i>
+            <p class="lead">پاسخ شما صحیح است!</p>
+            <div class="alert alert-success mt-3">
+                <p class="mb-1"><strong>وضعیت حافظه:</strong> ${response.feedback.state}</p>
+                <p class="mb-1"><strong>قدرت:</strong> ${response.feedback.strength}%</p>
+                <p class="mb-0"><strong>مرور بعدی:</strong> ${response.feedback.next_review}</p>
+            </div>
+        `);
+    } else {
+        $('#resultHeader').html(`
+            <h5 class="modal-title text-danger">
+                <i class="bi bi-x-circle-fill me-2"></i>پاسخ صحیح
+            </h5>
+        `);
+        
+        let correctAnswer = response.correct_answer;
+        if (!correctAnswer && currentExercise.correct_answer) {
+            correctAnswer = currentExercise.correct_answer;
+        }
+        
+        $('#resultBody').html(`
+            <i class="bi bi-emoji-frown display-1 text-danger mb-3"></i>
+            <p class="lead">پاسخ صحیح:</p>
+            <div class="alert alert-info">
+                <h5>${correctAnswer}</h5>
+            </div>
+            <div class="alert alert-warning mt-3">
+                <p class="mb-1"><strong>وضعیت حافظه:</strong> ${response.feedback.state}</p>
+                <p class="mb-1"><strong>قدرت:</strong> ${response.feedback.strength}%</p>
+                <p class="mb-0"><strong>مرور بعدی:</strong> ${response.feedback.next_review}</p>
+            </div>
+        `);
+    }
+    
+    $('#resultModal').modal('show');
+}
+
+function loadNextExercise() {
+    // بستن مودال‌ها
+    $('#resultModal').modal('hide');
+    
+    // ریست کردن پاسخ کاربر
+    userAnswer = null;
+    
+    // فعال کردن دکمه‌ها
+    $('#submitBtn').prop('disabled', false);
+    $('#skipBtn').prop('disabled', false);
+    
+    // دریافت تمرین بعدی
+    $.ajax({
+        url: "{{ url_for('learning.get_next_exercise') }}",
+        type: 'GET',
+        success: function(response) {
+            if (response.finished) {
+                showSessionComplete(response);
+            } else {
+                loadExercise(response);
+            }
+        }
+    });
+}
+
+function showSessionComplete(response) {
+    let statsHtml = `
+        <p>کار عالی بود! در این جلسه:</p>
+        <div class="row text-center mt-3">
+            <div class="col-6">
+                <div class="display-6 text-primary">${response.words_learned || 0}</div>
+                <small class="text-muted">کلمه جدید</small>
+            </div>
+            <div class="col-6">
+                <div class="display-6 text-success">${response.words_reviewed || 0}</div>
+                <small class="text-muted">کلمه مرور شده</small>
+            </div>
+        </div>
+    `;
+    
+    $('#sessionStats').html(statsHtml);
+    $('#sessionCompleteModal').modal('show');
+}
+
+function startNewSession() {
+    $('#sessionCompleteModal').modal('hide');
+    setTimeout(() => {
+        window.location.reload();
+    }, 300);
+}
+
+function playAudio() {
+    // در نسخه فعلی، فقط پیام نمایش داده می‌شود
+    // در آینده با Web Audio API پیاده‌سازی می‌شود
+    alert('در نسخه فعلی، فایل صوتی پخش نمی‌شود. در آینده اضافه خواهد شد.');
+}
+</script>
+{% endblock %}

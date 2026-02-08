@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}ورود به Solingo{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>ورود به حساب کاربری
+                </h2>
+                
+                <form method="POST" action="{{ url_for('auth.login') }}">
+                    <!-- Username Field -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">نام کاربری</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-person"></i>
+                            </span>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="username" 
+                                   name="username" 
+                                   placeholder="نام کاربری خود را وارد کنید"
+                                   required>
+                        </div>
+                    </div>
+                    
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">رمز عبور</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-lock"></i>
+                            </span>
+                            <input type="password" 
+                                   class="form-control" 
+                                   id="password" 
+                                   name="password" 
+                                   placeholder="رمز عبور خود را وارد کنید"
+                                   required>
+                        </div>
+                    </div>
+                    
+                    <!-- Remember Me -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">مرا به خاطر بسپار</label>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>ورود
+                        </button>
+                    </div>
+                    
+                    <!-- Register Link -->
+                    <div class="text-center">
+                        <p class="mb-0">
+                            حساب کاربری ندارید؟
+                            <a href="{{ url_for('auth.register') }}" class="text-decoration-none">
+                                همین حالا ثبت‌نام کنید
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

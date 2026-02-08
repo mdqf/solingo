@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% block title %}داشبورد - Solingo{% endblock %}
+
+{% block content %}
+<div class="dashboard-header mb-4">
+    <h1 class="display-6">
+        <i class="bi bi-speedometer2 me-2"></i>داشبورد یادگیری
+    </h1>
+    <p class="text-muted">سلام {{ user.username }}! وضعیت یادگیری شما:</p>
+</div>
+
+<!-- Stats Cards -->
+<div class="row g-4 mb-5">
+    <!-- Streak Card -->
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="stat-number">{{ user.streak_days }}</div>
+            <div class="stat-label">
+                <i class="bi bi-fire text-danger me-1"></i>روز متوالی
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Words Card -->
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="stat-number">{{ total_words }}</div>
+            <div class="stat-label">کلمه آموخته شده</div>
+        </div>
+    </div>
+
+    <!-- Mastered Words Card -->
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="stat-number">{{ mastered_words }}</div>
+            <div class="stat-label">کلمه تسلط یافته</div>
+        </div>
+    </div>
+
+    <!-- Due Words Card -->
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="stat-number">{{ due_words }}</div>
+            <div class="stat-label">کلمه برای مرور</div>
+        </div>
+    </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title mb-4">آماده یادگیری هستید؟</h4>
+                <a href="{{ url_for('learning.advanced_review') }}" class="btn btn-primary btn-lg me-3"
+                    id="startSessionBtn">
+                    <i class="bi bi-play-circle me-2"></i>شروع جلسه یادگیری
+                </a>
+                <button class="btn btn-outline-primary btn-lg" id="quickReviewBtn">
+                    <i class="bi bi-lightning me-2"></i>مرور سریع
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Section -->
+<div class="row">
+    <!-- Word Status Distribution -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-pie-chart me-2"></i>وضعیت کلمات
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="statusChart">
+                    {% for state, count in status_distribution.items() %}
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>
+                                {% if state == 'new' %}
+                                <span class="badge bg-secondary">جدید</span>
+                                {% elif state == 'learning' %}
+                                <span class="badge bg-warning text-dark">در حال یادگیری</span>
+                                {% elif state == 'weak' %}
+                                <span class="badge bg-orange">ضعیف</span>
+                                {% elif state == 'strong' %}
+                                <span class="badge bg-success">قوی</span>
+                                {% elif state == 'mastered' %}
+                                <span class="badge bg-primary">تسلط یافته</span>
+                                {% endif %}
+                            </span>
+                            <span>{{ count }} کلمه</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar 
+                                {% if state == 'new' %}bg-secondary
+                                {% elif state == 'learning' %}bg-warning
+                                {% elif state == 'weak' %}bg-orange
+                                {% elif state == 'strong' %}bg-success
+                                {% elif state == 'mastered' %}bg-primary
+                                {% endif %}"
+                                style="width: {{ (count / total_words * 100) if total_words > 0 else 0 }}%">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Sessions -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history me-2"></i>جلسات اخیر
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if recent_sessions %}
+                <div class="list-group list-group-flush">
+                    {% for session in recent_sessions %}
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="mb-1">
+                                    جلسه {{ session.session_type }}
+                                </h6>
+                                <small class="text-muted">
+                                    {{ session.started_at.strftime('%Y/%m/%d %H:%M') }}
+                                </small>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success">
+                                    {{ session.total_correct }}/{{ session.total_questions }}
+                                </span>
+                                <br>
+                                <small>{{ session.words_learned }} کلمه جدید</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="bi bi-emoji-smile display-4 text-muted mb-3"></i>
+                    <p class="text-muted">هنوز جلسه‌ای نداشته‌اید!</p>
+                    <a href="{{ url_for('learning.smart_start') }}" class="btn btn-primary btn-lg me-3"
+                        id="startSessionBtn">
+                        <i class="bi bi-play-circle me-2"></i>شروع یادگیری
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lessons Stats -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-journal-text me-2"></i>پیشرفت در درس‌ها
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="lessonsProgress">
+                    <!-- اینجا با JavaScript لود می‌شود -->
+                    <div class="text-center py-3">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                            <span class="visually-hidden">در حال بارگذاری...</span>
+                        </div>
+                        <span class="ms-2">در حال دریافت اطلاعات درس‌ها...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Learning Tips -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightbulb me-2"></i>نکات یادگیری
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-alarm text-primary fs-4"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6>مداومت</h6>
+                                <p class="small text-muted mb-0">
+                                    روزانه حداقل ۱۵ دقیقه وقت بگذارید، حتی اگر وقت کمی دارید.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-check2-circle text-success fs-4"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6>تکرار منظم</h6>
+                                <p class="small text-muted mb-0">
+                                    کلمات قبلی را فراموش نکنید. سیستم به شما یادآوری می‌کند.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="bi bi-emoji-smile text-warning fs-4"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6>صبوری</h6>
+                                <p class="small text-muted mb-0">
+                                    یادگیری زبان زمان‌بر است. به خودتان زمان بدهید و لذت ببرید.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-orange {
+        background-color: #fd7e14 !important;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        // Start Session Button
+        $('#startSessionBtn').click(function (e) {
+            e.preventDefault();
+            startLearningSession();
+        });
+
+        // Quick Review Button
+        $('#quickReviewBtn').click(function () {
+            startQuickReview();
+        });
+
+        function startLearningSession() {
+            // هدایت مستقیم به صفحه تمرین پیشرفته
+            window.location.href = "{{ url_for('learning.advanced_review') }}";
+        }
+
+        function startQuickReview() {
+            $.ajax({
+                url: "{{ url_for('learning.start_session') }}",
+                type: 'GET',
+                data: { quick: true },
+                success: function (response) {
+                    if (response.message) {
+                        alert(response.message);
+                    } else {
+                        // نمایش تمرین در مودال
+                        showExerciseModal(response.exercise);
+                    }
+                }
+            });
+        }
+
+        function showExerciseModal(exercise) {
+            // پیاده‌سازی نمایش مودال تمرین
+            console.log('Showing exercise:', exercise);
+            alert('ویژگی مرور سریع به زودی اضافه می‌شود!');
+        }
+
+        // Load Lessons Stats
+        $.ajax({
+            url: "{{ url_for('vocabulary_stats') }}",
+            type: 'GET',
+            success: function (stats) {
+                displayLessonsProgress(stats.lessons);
+            }
+        });
+
+        function displayLessonsProgress(lessons) {
+            let html = '<div class="row">';
+            let sortedLessons = Object.keys(lessons).sort();
+
+            sortedLessons.forEach(lesson => {
+                let count = lessons[lesson];
+                html += `
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">درس ${lesson}</h6>
+                            <div class="display-6 text-primary">${count}</div>
+                            <small class="text-muted">کلمه</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            });
+
+            html += '</div>';
+            $('#lessonsProgress').html(html);
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}خانه - Solingo{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center py-5">
+    <div class="container">
+        <h1 class="display-4 mb-4">یادگیری زبان آلمانی با <span class="text-primary">Solingo</span></h1>
+        <p class="lead mb-4">
+            سیستم هوشمند تکرار فاصله‌دار برای یادگیری مؤثر و ماندگار واژگان آلمانی
+        </p>
+        
+        {% if not current_user.is_authenticated %}
+        <div class="d-grid gap-3 d-md-flex justify-content-md-center mt-4">
+            <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="bi bi-rocket-takeoff me-2"></i>شروع رایگان
+            </a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary btn-lg px-5 py-3">
+                <i class="bi bi-box-arrow-in-right me-2"></i>ورود
+            </a>
+        </div>
+        {% else %}
+        <div class="d-grid gap-3 d-md-flex justify-content-md-center mt-4">
+            <a href="{{ url_for('learning.dashboard') }}" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="bi bi-speedometer2 me-2"></i>ادامه یادگیری
+            </a>
+            <a href="{{ url_for('learning.start_session') }}" class="btn btn-success btn-lg px-5 py-3">
+                <i class="bi bi-play-circle me-2"></i>شروع جلسه جدید
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="features-section py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-brain display-4 text-primary"></i>
+                        </div>
+                        <h4 class="card-title">تکرار فاصله‌دار هوشمند</h4>
+                        <p class="card-text">
+                            الگوریتمی که زمان مرور هر کلمه را بر اساس عملکرد شما تنظیم می‌کند
+                            تا یادگیری در زمان مناسب اتفاق بیفتد.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-list-task display-4 text-success"></i>
+                        </div>
+                        <h4 class="card-title">انواع تمرین مختلف</h4>
+                        <p class="card-text">
+                            چندگزینه‌ای، تایپینگ، شنیداری و تمرین‌های متنوع دیگر
+                            برای تقویت همه مهارت‌های زبانی.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon mb-3">
+                            <i class="bi bi-graph-up display-4 text-info"></i>
+                        </div>
+                        <h4 class="card-title">پیگیری پیشرفت</h4>
+                        <p class="card-text">
+                            تحلیل عملکرد و نمایش میزان تسلط شما بر هر کلمه
+                            با نمودارها و آمارهای دقیق.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not current_user.is_authenticated %}
+<div class="cta-section bg-primary text-white py-5 rounded-3">
+    <div class="container text-center">
+        <h2 class="mb-4">آماده شروع یادگیری هستید؟</h2>
+        <p class="lead mb-4">
+            همین حالا به جامعه زبان‌آموزان Solingo بپیوندید و آلمانی را اصولی یاد بگیرید.
+        </p>
+        <a href="{{ url_for('auth.register') }}" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-rocket-takeoff me-2"></i>ثبت‌نام رایگان
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

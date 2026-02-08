@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}معرفی کلمه جدید - Solingo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-star me-2"></i>کلمه جدید
+                    </h4>
+                </div>
+                
+                <div class="card-body">
+                    <!-- کلمه آلمانی -->
+                    <div class="text-center mb-4">
+                        <h1 class="display-4">
+                            {% if word.article %}{{ word.article }} {% endif %}{{ word.lemma }}
+                        </h1>
+                        {% if word.plural %}
+                        <p class="text-muted">جمع: {{ word.plural }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- تلفظ -->
+                    {% if word.ipa %}
+                    <div class="alert alert-info">
+                        <h5>
+                            <i class="bi bi-megaphone me-2"></i>تلفظ
+                        </h5>
+                        <p class="display-6">{{ word.ipa }}</p>
+                        <button class="btn btn-outline-info btn-sm">
+                            <i class="bi bi-volume-up me-1"></i>گوش دادن
+                        </button>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- معنی -->
+                    <div class="alert alert-success">
+                        <h5>
+                            <i class="bi bi-translate me-2"></i>معنی
+                        </h5>
+                        <p class="h4">{{ word.persian_translation }}</p>
+                        {% if word.german_definition %}
+                        <hr>
+                        <p class="mb-0">
+                            <small class="text-muted">تعریف آلمانی:</small><br>
+                            {{ word.german_definition }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- مثال -->
+                    {% if word.example_german %}
+                    <div class="alert alert-warning">
+                        <h5>
+                            <i class="bi bi-chat-quote me-2"></i>مثال
+                        </h5>
+                        <p class="h5">{{ word.example_german }}</p>
+                        {% if word.example_persian %}
+                        <p class="mb-0 text-muted">{{ word.example_persian }}</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <!-- اطلاعات تکمیلی -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6>
+                                        <i class="bi bi-tag me-2"></i>دسته‌بندی
+                                    </h6>
+                                    <p class="mb-0">{{ word.part_of_speech }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6>
+                                        <i class="bi bi-bar-chart me-2"></i>سطح
+                                    </h6>
+                                    <p class="mb-0">
+                                        {{ word.cefr_level }} 
+                                        {% if word.lesson %} - درس {{ word.lesson }}{% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary btn-lg" id="startPracticeBtn">
+                        <i class="bi bi-play-circle me-2"></i>شروع تمرین
+                    </button>
+                    <a href="{{ url_for('learning.dashboard') }}" class="btn btn-outline-secondary btn-lg ms-2">
+                        بعداً
+                    </a>
+                </div>
+            </div>
+            
+            <!-- نکات یادگیری -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-lightbulb me-2"></i>نکات یادگیری
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            سعی کنید کلمه را با تصویر یا داستانی مرتبط کنید
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            کلمه را با صدای بلند تکرار کنید
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            در جمله‌ای مشابه مثال استفاده کنید
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#startPracticeBtn').click(function() {
+        const wordId = {{ word.id }};
+        
+        $.ajax({
+            url: "{{ url_for('learning.start_learning_from_intro', word_id=word.id) }}",
+            type: 'GET',
+            success: function(response) {
+                if (response.is_introduction) {
+                    // هدایت به صفحه تمرین
+                    window.location.href = "{{ url_for('learning.advanced_review') }}";
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

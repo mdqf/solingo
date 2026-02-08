@@ -1,0 +1,746 @@
+[
+    {
+        "word": {
+            "lemma": "bank",
+            "article": "die",
+            "plural": "Banken",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Unternehmen, bei dem man Geld sparen oder leihen kann",
+            "persian_translation": "بانک"
+        },
+        "example": {
+            "german_sentence": "Die Bank ist heute geschlossen.",
+            "persian_translation": "بانک امروز بسته است."
+        },
+        "audio": {
+            "ipa": "/baŋk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "disco",
+            "article": "die",
+            "plural": "Discos",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Ort, an dem man tanzt und Musik hört",
+            "persian_translation": "دیسکو"
+        },
+        "example": {
+            "german_sentence": "Wir gehen am Samstag in die Disco.",
+            "persian_translation": "ما شنبه به دیسکو می‌رویم."
+        },
+        "audio": {
+            "ipa": "/ˈdɪsko /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "dorf",
+            "article": "das",
+            "plural": "Dörfer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine kleine Siedlung auf dem Land",
+            "persian_translation": "روستا"
+        },
+        "example": {
+            "german_sentence": "Das Dorf ist sehr ruhig.",
+            "persian_translation": "روستا خیلی آرام است."
+        },
+        "audio": {
+            "ipa": "/dɔʁf /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ecke",
+            "article": "die",
+            "plural": "Ecken",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "der Ort, wo zwei Straßen oder Wände zusammenkommen",
+            "persian_translation": "گوشه"
+        },
+        "example": {
+            "german_sentence": "Die Bäckerei ist an der Ecke.",
+            "persian_translation": "نانوایی در گوشه (نبش) است."
+        },
+        "audio": {
+            "ipa": "/ˈɛkə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "eintritt",
+            "article": "der",
+            "plural": "Eintritte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "das Geld, das man bezahlt, um hineinzugehen",
+            "persian_translation": "هزینه ورودی"
+        },
+        "example": {
+            "german_sentence": "Der Eintritt kostet fünf Euro.",
+            "persian_translation": "هزینه ورودی پنج یورو است."
+        },
+        "audio": {
+            "ipa": "/ˈaɪ̯ntʁɪt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kindergarten",
+            "article": "der",
+            "plural": "Kindergärten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Einrichtung für kleine Kinder vor der Schule",
+            "persian_translation": "مهدکودک"
+        },
+        "example": {
+            "german_sentence": "Mein Kind geht in den Kindergarten.",
+            "persian_translation": "بچه من به مهدکودک می‌رود."
+        },
+        "audio": {
+            "ipa": "/ˈkɪndɐˌɡaːɐ̯tn̩ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kino",
+            "article": "das",
+            "plural": "Kinos",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Ort, an dem man Filme sieht",
+            "persian_translation": "سینما"
+        },
+        "example": {
+            "german_sentence": "Wir sehen einen Film im Kino.",
+            "persian_translation": "ما در سینما یک فیلم می‌بینیم."
+        },
+        "audio": {
+            "ipa": "/ˈkiːnoː /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "hotel",
+            "article": "das",
+            "plural": "Hotels",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Haus für Reisende zum Übernachten",
+            "persian_translation": "هتل"
+        },
+        "example": {
+            "german_sentence": "Das Hotel ist im Zentrum.",
+            "persian_translation": "هتل در مرکز شهر است."
+        },
+        "audio": {
+            "ipa": "/hoˈtɛl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "platz",
+            "article": "der",
+            "plural": "Plätze",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine freie Fläche in der Stadt",
+            "persian_translation": "میدان"
+        },
+        "example": {
+            "german_sentence": "Der Marktplatz ist sehr groß.",
+            "persian_translation": "میدان بازار خیلی بزرگ است."
+        },
+        "audio": {
+            "ipa": "/plats /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "polizei",
+            "article": "die",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Organisation für Sicherheit und Ordnung",
+            "persian_translation": "پلیس"
+        },
+        "example": {
+            "german_sentence": "Die Polizei hilft den Menschen.",
+            "persian_translation": "پلیس به مردم کمک می‌کند."
+        },
+        "audio": {
+            "ipa": "/poliˈt͡saɪ̯ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "praxis",
+            "article": "die",
+            "plural": "Praxen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "der Arbeitsplatz von einem Arzt",
+            "persian_translation": "مطب (دکتر)"
+        },
+        "example": {
+            "german_sentence": "Die Praxis ist ab neun Uhr offen.",
+            "persian_translation": "مطب از ساعت نه باز است."
+        },
+        "audio": {
+            "ipa": "/ˈpʁaksɪs /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "reisebüro",
+            "article": "das",
+            "plural": "Reisebüros",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Geschäft für Reisebuchungen",
+            "persian_translation": "آژانس مسافرتی"
+        },
+        "example": {
+            "german_sentence": "Ich buche einen Urlaub im Reisebüro.",
+            "persian_translation": "من در آژانس مسافرتی یک تعطیلات رزرو می‌کنم."
+        },
+        "audio": {
+            "ipa": "/ˈʀaɪ̯zəbyˌʀoː /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schwimmbad",
+            "article": "das",
+            "plural": "Schwimmbäder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Ort zum Schwimmen",
+            "persian_translation": "استخر شنا"
+        },
+        "example": {
+            "german_sentence": "Das Schwimmbad ist am Montag zu.",
+            "persian_translation": "استخر شنا روز دوشنبه بسته است."
+        },
+        "audio": {
+            "ipa": "/ˈʃvɪmbaːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "sehenswürdigkeit",
+            "article": "die",
+            "plural": "Sehenswürdigkeiten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "etwas Berühmtes in einer Stadt",
+            "persian_translation": "مکان دیدنی"
+        },
+        "example": {
+            "german_sentence": "Der Dom ist eine Sehenswürdigkeit.",
+            "persian_translation": "کلیسای جامع یک مکان دیدنی است."
+        },
+        "audio": {
+            "ipa": "/ˈzeːənsˌvʏʁdɪçkaɪ̯t /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "stadt",
+            "article": "die",
+            "plural": "Städte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein großer Ort mit vielen Häusern",
+            "persian_translation": "شهر"
+        },
+        "example": {
+            "german_sentence": "Die Stadt ist sehr modern.",
+            "persian_translation": "شهر خیلی مدرن است."
+        },
+        "audio": {
+            "ipa": "/ʃtat /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "blick",
+            "article": "der",
+            "plural": "Blicke",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "die Sicht auf etwas",
+            "persian_translation": "چشم‌انداز"
+        },
+        "example": {
+            "german_sentence": "Ich habe einen Blick auf das Meer.",
+            "persian_translation": "من چشم‌اندازی به دریا دارم."
+        },
+        "audio": {
+            "ipa": "/blɪk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ort",
+            "article": "der",
+            "plural": "Orte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Platz oder eine Stelle",
+            "persian_translation": "محل"
+        },
+        "example": {
+            "german_sentence": "Das ist ein schöner Ort.",
+            "persian_translation": "اینجا یک محل زیبا است."
+        },
+        "audio": {
+            "ipa": "/ɔʁt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "stelle",
+            "article": "die",
+            "plural": "Stellen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein bestimmter Punkt oder Platz",
+            "persian_translation": "جا"
+        },
+        "example": {
+            "german_sentence": "Das ist die richtige Stelle.",
+            "persian_translation": "این جای درست است."
+        },
+        "audio": {
+            "ipa": "/ˈʃtɛlə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "einzelzimmer",
+            "article": "das",
+            "plural": "Einzelzimmer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Zimmer für eine Person",
+            "persian_translation": "اتاق یک‌تخته"
+        },
+        "example": {
+            "german_sentence": "Das Einzelzimmer ist noch frei.",
+            "persian_translation": "اتاق یک‌تخته هنوز خالی است."
+        },
+        "audio": {
+            "ipa": "/ˈaintsl ˈt͡sɪmɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "doppelzimmer",
+            "article": "das",
+            "plural": "Doppelzimmer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Zimmer für zwei Personen",
+            "persian_translation": "اتاق دو‌تخته"
+        },
+        "example": {
+            "german_sentence": "Ich brauche ein Doppelzimmer.",
+            "persian_translation": "من به یک اتاق دوتخته نیاز دارم."
+        },
+        "audio": {
+            "ipa": "/ˈdɔpəltsɪmɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "rezeption",
+            "article": "die",
+            "plural": "Rezeptionen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "der Empfang in einem Hotel",
+            "persian_translation": "بخش پذیرش"
+        },
+        "example": {
+            "german_sentence": "Die Rezeption ist im Erdgeschoss.",
+            "persian_translation": "پذیرش در طبقه همکف است."
+        },
+        "audio": {
+            "ipa": "/ˌʀeʦɛpˈʦi̯oːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "plan",
+            "article": "der",
+            "plural": "Pläne",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Zeichnung von einer Stadt oder einem Haus",
+            "persian_translation": "نقشه"
+        },
+        "example": {
+            "german_sentence": "Ich habe einen Stadtplan.",
+            "persian_translation": "من یک نقشه شهر دارم."
+        },
+        "audio": {
+            "ipa": "/plaːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "teil",
+            "article": "der",
+            "plural": "Teile",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Stück von einem Ganzen",
+            "persian_translation": "بخش"
+        },
+        "example": {
+            "german_sentence": "Das ist ein Teil von Berlin.",
+            "persian_translation": "این یک بخش از برلین است."
+        },
+        "audio": {
+            "ipa": "/taɪ̯l /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "automat",
+            "article": "der",
+            "plural": "Automaten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "8"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Maschine, die Dinge verkauft",
+            "persian_translation": "دستگاه خودکار فروش"
+        },
+        "example": {
+            "german_sentence": "Der Automat verkauft Fahrkarten.",
+            "persian_translation": "دستگاه بلیط می‌فروشد."
+        },
+        "audio": {
+            "ipa": "/ˌaʊ̯toˈmaːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

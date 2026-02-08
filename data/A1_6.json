@@ -1,0 +1,994 @@
+[
+    {
+        "word": {
+            "lemma": "apartment",
+            "article": "das",
+            "plural": "Apartments",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine kleine Wohnung",
+            "persian_translation": "آپارتمان"
+        },
+        "example": {
+            "german_sentence": "Das Apartment ist modern.",
+            "persian_translation": "آپارتمان مدرن است."
+        },
+        "audio": {
+            "ipa": "/aˈpartmənt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "wohnung",
+            "article": "die",
+            "plural": "Wohnungen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Ort zum Wohnen",
+            "persian_translation": "آپارتمان"
+        },
+        "example": {
+            "german_sentence": "Die Wohnung ist groß.",
+            "persian_translation": "آپارتمان بزرگ است."
+        },
+        "audio": {
+            "ipa": "/ˈvoːnʊŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "haus",
+            "article": "das",
+            "plural": "Häuser",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Gebäude zum Wohnen",
+            "persian_translation": "خانه"
+        },
+        "example": {
+            "german_sentence": "Das Haus ist alt.",
+            "persian_translation": "خانه قدیمی است."
+        },
+        "audio": {
+            "ipa": "/haʊ̯s /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "aufzug",
+            "article": "der",
+            "plural": "Aufzüge",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Maschine für Personen nach oben",
+            "persian_translation": "آسانسور"
+        },
+        "example": {
+            "german_sentence": "Der Aufzug fährt nach oben.",
+            "persian_translation": "آسانسور به سمت بالا می‌رود."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯ftsuːk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "balkon",
+            "article": "der",
+            "plural": "Balkone",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz draußen an der Wohnung",
+            "persian_translation": "بالکن"
+        },
+        "example": {
+            "german_sentence": "Der Balkon ist klein.",
+            "persian_translation": "بالکن کوچک است."
+        },
+        "audio": {
+            "ipa": "/balˈkɔŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "raum",
+            "article": "der",
+            "plural": "Räume",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Teil einer Wohnung",
+            "persian_translation": "اتاق"
+        },
+        "example": {
+            "german_sentence": "Der Raum ist hell.",
+            "persian_translation": "اتاق روشن است."
+        },
+        "audio": {
+            "ipa": "/ʁaʊ̯m /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "zimmer",
+            "article": "das",
+            "plural": "Zimmer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein abgeschlossener Raum",
+            "persian_translation": "اتاق"
+        },
+        "example": {
+            "german_sentence": "Das Zimmer ist sauber.",
+            "persian_translation": "اتاق تمیز است."
+        },
+        "audio": {
+            "ipa": "/ˈt͡sɪmɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "küche",
+            "article": "die",
+            "plural": "Küchen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Raum zum Kochen",
+            "persian_translation": "آشپزخانه"
+        },
+        "example": {
+            "german_sentence": "Die Küche ist neu.",
+            "persian_translation": "آشپزخانه نو است."
+        },
+        "audio": {
+            "ipa": "/ˈkʏçə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bad",
+            "article": "das",
+            "plural": "Bäder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Raum zum Waschen",
+            "persian_translation": "حمام"
+        },
+        "example": {
+            "german_sentence": "Ich gehe in das Bad.",
+            "persian_translation": "من به حمام می‌روم."
+        },
+        "audio": {
+            "ipa": "/baːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "dusche",
+            "article": "die",
+            "plural": "Duschen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz zum Duschen",
+            "persian_translation": "دوش آب"
+        },
+        "example": {
+            "german_sentence": "Die Dusche ist kalt.",
+            "persian_translation": "دوش آب سرد است."
+        },
+        "audio": {
+            "ipa": "/ˈdʊʃə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "toilette",
+            "article": "die",
+            "plural": "Toiletten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das WC",
+            "persian_translation": "دستشویی"
+        },
+        "example": {
+            "german_sentence": "Die Toilette ist besetzt.",
+            "persian_translation": "دستشویی اشغال است."
+        },
+        "audio": {
+            "ipa": "/toˈlɛtə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "licht",
+            "article": "das",
+            "plural": "Lichter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Helligkeit von einer Lampe",
+            "persian_translation": "چراغ"
+        },
+        "example": {
+            "german_sentence": "Das Licht brennt.",
+            "persian_translation": "چراغ روشن است."
+        },
+        "audio": {
+            "ipa": "/lɪçt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "treppe",
+            "article": "die",
+            "plural": "Treppen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Stufen zum Gehen nach oben",
+            "persian_translation": "پله"
+        },
+        "example": {
+            "german_sentence": "Ich gehe die Treppe.",
+            "persian_translation": "من از پله می‌روم."
+        },
+        "audio": {
+            "ipa": "/ˈtʁɛpə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "eingang",
+            "article": "der",
+            "plural": "Eingänge",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Tür nach drinnen",
+            "persian_translation": "ورودی"
+        },
+        "example": {
+            "german_sentence": "Der Eingang ist rechts.",
+            "persian_translation": "ورودی در سمت راست است."
+        },
+        "audio": {
+            "ipa": "/ˈaɪ̯nɡaŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "stock",
+            "article": "der",
+            "plural": "Stockwerke",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Etage im Haus",
+            "persian_translation": "طبقه"
+        },
+        "example": {
+            "german_sentence": "Ich wohne im ersten Stock.",
+            "persian_translation": "من در طبقه اول زندگی می‌کنم."
+        },
+        "audio": {
+            "ipa": "/ʃtɔk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "möbel",
+            "article": "die",
+            "plural": "Möbel",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Gegenstände in der Wohnung",
+            "persian_translation": "مبلمان"
+        },
+        "example": {
+            "german_sentence": "Die Möbel sind teuer.",
+            "persian_translation": "مبلمان گران است."
+        },
+        "audio": {
+            "ipa": "/ˈmøːbəl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bett",
+            "article": "das",
+            "plural": "Betten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz zum Schlafen",
+            "persian_translation": "تختخواب"
+        },
+        "example": {
+            "german_sentence": "Das Bett ist weich.",
+            "persian_translation": "تختخواب نرم است."
+        },
+        "audio": {
+            "ipa": "/bɛt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kühlschrank",
+            "article": "der",
+            "plural": "Kühlschränke",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Kasten für kaltes Essen",
+            "persian_translation": "یخچال"
+        },
+        "example": {
+            "german_sentence": "Der Kühlschrank ist voll.",
+            "persian_translation": "یخچال پر است."
+        },
+        "audio": {
+            "ipa": "/ˈkyːlˌʃʀaŋk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "flasche",
+            "article": "die",
+            "plural": "Flaschen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Behälter für Wasser",
+            "persian_translation": "بطری"
+        },
+        "example": {
+            "german_sentence": "Die Flasche ist leer.",
+            "persian_translation": "بطری خالی است."
+        },
+        "audio": {
+            "ipa": "/ˈflaʃə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "herd",
+            "article": "der",
+            "plural": "Herde",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Gerät zum Kochen",
+            "persian_translation": "اجاق‌گاز"
+        },
+        "example": {
+            "german_sentence": "Der Herd ist heiß.",
+            "persian_translation": "اجاق‌گاز داغ است."
+        },
+        "audio": {
+            "ipa": "/heːɐ̯t /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schlüssel",
+            "article": "der",
+            "plural": "Schlüssel",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Ding zum Tür öffnen",
+            "persian_translation": "کلید"
+        },
+        "example": {
+            "german_sentence": "Hier ist mein Schlüssel.",
+            "persian_translation": "کلید من اینجا است."
+        },
+        "audio": {
+            "ipa": "/ˈʃlʏsəl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schrank",
+            "article": "der",
+            "plural": "Schränke",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Möbel für Kleidung",
+            "persian_translation": "کمد"
+        },
+        "example": {
+            "german_sentence": "Der Schrank ist braun.",
+            "persian_translation": "کمد قهوه‌ای است."
+        },
+        "audio": {
+            "ipa": "/ʃʀaŋk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "sofa",
+            "article": "das",
+            "plural": "Sofas",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein bequemes Möbel zum Sitzen",
+            "persian_translation": "کاناپه"
+        },
+        "example": {
+            "german_sentence": "Das Sofa ist bequem.",
+            "persian_translation": "کاناپه راحت است."
+        },
+        "audio": {
+            "ipa": "/ˈzoːfa /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "tisch",
+            "article": "der",
+            "plural": "Tische",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Möbel zum Essen",
+            "persian_translation": "میز"
+        },
+        "example": {
+            "german_sentence": "Der Tisch ist groß.",
+            "persian_translation": "میز بزرگ است."
+        },
+        "audio": {
+            "ipa": "/tɪʃ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "glas",
+            "article": "das",
+            "plural": "Gläser",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Gefäß zum Trinken",
+            "persian_translation": "لیوان"
+        },
+        "example": {
+            "german_sentence": "Ich brauche ein Glas.",
+            "persian_translation": "من به یک لیوان نیاز دارم."
+        },
+        "audio": {
+            "ipa": "/ɡlaːs /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "hund",
+            "article": "der",
+            "plural": "Hunde",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Haustier",
+            "persian_translation": "سگ"
+        },
+        "example": {
+            "german_sentence": "Der Hund bellt.",
+            "persian_translation": "سگ واق‌واق می‌کند."
+        },
+        "audio": {
+            "ipa": "/hʊnt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "miete",
+            "article": "die",
+            "plural": "Mieten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das Geld für die Wohnung",
+            "persian_translation": "اجاره"
+        },
+        "example": {
+            "german_sentence": "Die Miete ist hoch.",
+            "persian_translation": "اجاره بالا است."
+        },
+        "audio": {
+            "ipa": "/ˈmiːtə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "mieten",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Geld für eine Wohnung bezahlen",
+            "persian_translation": "اجاره کردن"
+        },
+        "example": {
+            "german_sentence": "Ich miete ein Zimmer.",
+            "persian_translation": "من یک اتاق اجاره می‌کنم."
+        },
+        "audio": {
+            "ipa": "/ˈmiːtən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "vermieten",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Haus gegen Geld geben",
+            "persian_translation": "اجاره دادن"
+        },
+        "example": {
+            "german_sentence": "Er vermietet sein Haus.",
+            "persian_translation": "او خانه‌اش را اجاره می‌دهد."
+        },
+        "audio": {
+            "ipa": "/fɛɐ̯ˈmiːtən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "vermieter",
+            "article": "der",
+            "plural": "Vermieter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Person, der das Haus gehört",
+            "persian_translation": "صاحب‌خانه"
+        },
+        "example": {
+            "german_sentence": "Der Vermieter ist nett.",
+            "persian_translation": "صاحب‌خانه مهربان است."
+        },
+        "audio": {
+            "ipa": "/fɛɐ̯ˈmiːtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "umziehen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "In eine neue Wohnung gehen",
+            "persian_translation": "اثاث‌کشی کردن"
+        },
+        "example": {
+            "german_sentence": "Wir ziehen heute um.",
+            "persian_translation": "ما امروز اثاث‌کشی می‌کنیم."
+        },
+        "audio": {
+            "ipa": "/ˈʊmtsiːən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "übernachten",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "6"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Woanders schlafen",
+            "persian_translation": "شب (جایی) ماندن"
+        },
+        "example": {
+            "german_sentence": "Ich übernachte im Hotel.",
+            "persian_translation": "من در هتل می‌مانم."
+        },
+        "audio": {
+            "ipa": "/ˌyːbɐˈnaxtən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

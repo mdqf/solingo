@@ -1,0 +1,653 @@
+[
+    {
+        "word": {
+            "lemma": "apfel",
+            "article": "der",
+            "plural": "Äpfel",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine runde Frucht, die rot, grün oder gelb ist",
+            "persian_translation": "سیب"
+        },
+        "example": {
+            "german_sentence": "Der Apfel ist sehr süß.",
+            "persian_translation": "سیب خیلی شیرین است."
+        },
+        "audio": {
+            "ipa": "/ˈapfl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "banane",
+            "article": "die",
+            "plural": "Bananen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine lange, gelbe Frucht",
+            "persian_translation": "موز"
+        },
+        "example": {
+            "german_sentence": "Die Banane schmeckt gut.",
+            "persian_translation": "موز خوشمزه است."
+        },
+        "audio": {
+            "ipa": "/baˈnaːnə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "birne",
+            "article": "die",
+            "plural": "Birnen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Frucht, die oben schmal und unten dick ist",
+            "persian_translation": "گلابی"
+        },
+        "example": {
+            "german_sentence": "Ich esse eine Birne.",
+            "persian_translation": "من یک گلابی می‌خورم."
+        },
+        "audio": {
+            "ipa": "/ˈbɪrnə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kartoffel",
+            "article": "die",
+            "plural": "Kartoffeln",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Gemüse, das in der Erde wächst",
+            "persian_translation": "سیب‌زمینی"
+        },
+        "example": {
+            "german_sentence": "Die Kartoffel ist weich.",
+            "persian_translation": "سیب‌زمینی نرم است."
+        },
+        "audio": {
+            "ipa": "/kaʁˈtɔfəl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "salat",
+            "article": "der",
+            "plural": "Salate",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Speise aus grünem Blattgemüse",
+            "persian_translation": "سالاد"
+        },
+        "example": {
+            "german_sentence": "Der Salat ist frisch.",
+            "persian_translation": "سالاد تازه است."
+        },
+        "audio": {
+            "ipa": "/zaˈlaːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "tomate",
+            "article": "die",
+            "plural": "Tomaten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein rotes, rundes Gemüse",
+            "persian_translation": "گوجه‌فرنگی"
+        },
+        "example": {
+            "german_sentence": "Die Tomate ist rot.",
+            "persian_translation": "گوجه‌فرنگی قرمز است."
+        },
+        "audio": {
+            "ipa": "/toˈmaːtə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gemüse",
+            "article": "das",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "essbare Pflanzenteile",
+            "persian_translation": "سبزیجات"
+        },
+        "example": {
+            "german_sentence": "Gemüse ist gesund.",
+            "persian_translation": "سبزیجات سالم است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈmyːzə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ei",
+            "article": "das",
+            "plural": "Eier",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Nahrungsmittel von Vögeln, meist Hühnern",
+            "persian_translation": "تخم‌مرغ"
+        },
+        "example": {
+            "german_sentence": "Das Ei kocht im Wasser.",
+            "persian_translation": "تخم‌مرغ در آب می‌پزد."
+        },
+        "audio": {
+            "ipa": "/aɪ̯ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fleisch",
+            "article": "das",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Muskelgewebe von Tieren zum Essen",
+            "persian_translation": "گوشت"
+        },
+        "example": {
+            "german_sentence": "Das Fleisch schmeckt gut.",
+            "persian_translation": "گوشت خوشمزه است."
+        },
+        "audio": {
+            "ipa": "/flaɪ̯ʃ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fisch",
+            "article": "der",
+            "plural": "Fische",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Tier, das im Wasser lebt",
+            "persian_translation": "ماهی"
+        },
+        "example": {
+            "german_sentence": "Der Fisch schwimmt im Wasser.",
+            "persian_translation": "ماهی در آب شنا می‌کند."
+        },
+        "audio": {
+            "ipa": "/fɪʃ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "hähnchen",
+            "article": "das",
+            "plural": "Hähnchen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "das Fleisch von einem Huhn",
+            "persian_translation": "جوجه (گوشت مرغ)"
+        },
+        "example": {
+            "german_sentence": "Wir essen heute Hähnchen.",
+            "persian_translation": "ما امروز جوجه می‌خوریم."
+        },
+        "audio": {
+            "ipa": "/ˈhɛːnçən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "käse",
+            "article": "der",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Lebensmittel aus Milch",
+            "persian_translation": "پنیر"
+        },
+        "example": {
+            "german_sentence": "Der Käse ist gelb.",
+            "persian_translation": "پنیر زرد است."
+        },
+        "audio": {
+            "ipa": "/ˈkɛːzə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "reis",
+            "article": "der",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "weiße Körner von einer Pflanze",
+            "persian_translation": "برنج"
+        },
+        "example": {
+            "german_sentence": "Ich koche den Reis.",
+            "persian_translation": "من برنج را می‌پزم."
+        },
+        "audio": {
+            "ipa": "/ʀaɪ̯s /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "wurst",
+            "article": "die",
+            "plural": "Würste",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Lebensmittel aus Fleisch in einer Haut",
+            "persian_translation": "سوسیس"
+        },
+        "example": {
+            "german_sentence": "Die Wurst ist salzig.",
+            "persian_translation": "سوسیس شور است."
+        },
+        "audio": {
+            "ipa": "/vʊʁst /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "brot",
+            "article": "das",
+            "plural": "Brote",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein gebackenes Lebensmittel aus Mehl",
+            "persian_translation": "نان"
+        },
+        "example": {
+            "german_sentence": "Das Brot ist frisch.",
+            "persian_translation": "نان تازه است."
+        },
+        "audio": {
+            "ipa": "/bʁoːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "brötchen",
+            "article": "das",
+            "plural": "Brötchen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein kleines Brot",
+            "persian_translation": "نان فانتزی (نان کوچک)"
+        },
+        "example": {
+            "german_sentence": "Ich kaufe zwei Brötchen.",
+            "persian_translation": "من دو نان فانتزی می‌خرم."
+        },
+        "audio": {
+            "ipa": "/ˈbʁøːtçən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kuchen",
+            "article": "der",
+            "plural": "Kuchen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein süßes Backwerk",
+            "persian_translation": "کیک"
+        },
+        "example": {
+            "german_sentence": "Der Kuchen schmeckt süß.",
+            "persian_translation": "کیک طعم شیرینی دارد."
+        },
+        "audio": {
+            "ipa": "/ˈkuːxn̩ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schokolade",
+            "article": "die",
+            "plural": "Schokoladen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine süße Süßigkeit aus Kakao",
+            "persian_translation": "شکلات"
+        },
+        "example": {
+            "german_sentence": "Kinder lieben Schokolade.",
+            "persian_translation": "بچه‌ها شکلات دوست دارند."
+        },
+        "audio": {
+            "ipa": "/ʃokoˈlaːdə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "obst",
+            "article": "das",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "süße Früchte von Bäumen oder Sträuchern",
+            "persian_translation": "میوه"
+        },
+        "example": {
+            "german_sentence": "Das Obst ist auf dem Tisch.",
+            "persian_translation": "میوه روی میز است."
+        },
+        "audio": {
+            "ipa": "/oːpst /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "lebensmittel",
+            "article": "das",
+            "plural": "Lebensmittel",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Dinge, die man essen oder trinken kann",
+            "persian_translation": "مواد غذایی"
+        },
+        "example": {
+            "german_sentence": "Wir kaufen Lebensmittel im Supermarkt.",
+            "persian_translation": "ما از سوپرمارکت مواد غذایی می‌خریم."
+        },
+        "audio": {
+            "ipa": "/ˈleːbnsˌmɪtl /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "essen",
+            "article": "das",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "9"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Mahlzeit oder Nahrung",
+            "persian_translation": "غذا"
+        },
+        "example": {
+            "german_sentence": "Das Essen ist fertig.",
+            "persian_translation": "غذا آماده است."
+        },
+        "audio": {
+            "ipa": "/ˈɛsn̩ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

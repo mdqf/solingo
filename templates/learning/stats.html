@@ -1,0 +1,413 @@
+{% extends "base.html" %}
+
+{% block title %}آمار و نمودارها - Solingo{% endblock %}
+
+{% block extra_css %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px;
+        margin: 20px 0;
+    }
+    
+    .stat-card {
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+    
+    .day-activity {
+        height: 30px;
+        background: #e9ecef;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .activity-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #4a6fa5, #6c8bc7);
+        border-radius: 15px;
+        transition: width 0.5s ease;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- هدر آمار -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-6">
+                    <i class="bi bi-graph-up me-2"></i>آمار و نمودارها
+                </h1>
+                <div>
+                    <a href="{{ url_for('learning.dashboard') }}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-right me-1"></i>بازگشت
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- کارت‌های آمار -->
+    <div class="row g-4 mb-4" id="statsCards">
+        <!-- با JavaScript پر می‌شود -->
+        <div class="col-12 text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">در حال بارگذاری...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- نمودار پیشرفت -->
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-calendar-week me-2"></i>فعالیت هفتگی
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="weeklyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-pie-chart me-2"></i>توزیع وضعیت کلمات
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- کلمات نیازمند مرور -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-exclamation-triangle me-2"></i>کلمات نیازمند تمرین بیشتر
+                    </h5>
+                    <button class="btn btn-sm btn-outline-primary" id="refreshWeakWords">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div id="weakWordsList">
+                        <!-- با JavaScript پر می‌شود -->
+                        <div class="text-center py-3">
+                            <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">در حال بارگذاری...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let weeklyChart = null;
+let statusChart = null;
+
+$(document).ready(function() {
+    // بارگذاری آمار
+    loadStats();
+    
+    // بارگذاری کلمات ضعیف
+    loadWeakWords();
+    
+    // دکمه رفرش
+    $('#refreshWeakWords').click(loadWeakWords);
+});
+
+function loadStats() {
+    $.ajax({
+        url: "{{ url_for('learning.session_stats') }}",
+        type: 'GET',
+        success: function(stats) {
+            updateStatsCards(stats);
+            createWeeklyChart(stats.daily_activity);
+            createStatusChart();
+        }
+    });
+}
+
+function updateStatsCards(stats) {
+    const cards = `
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body text-center">
+                    <div class="text-muted mb-2">جلسات هفته</div>
+                    <div class="display-5 text-primary">${stats.total_sessions}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body text-center">
+                    <div class="text-muted mb-2">کلمات جدید</div>
+                    <div class="display-5 text-success">${stats.total_words_learned}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body text-center">
+                    <div class="text-muted mb-2">کلمات مرور شده</div>
+                    <div class="display-5 text-info">${stats.total_words_reviewed}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="card-body text-center">
+                    <div class="text-muted mb-2">میانگین دقت</div>
+                    <div class="display-5 text-warning">${stats.accuracy}%</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    $('#statsCards').html(cards);
+}
+
+function createWeeklyChart(dailyActivity) {
+    const ctx = document.getElementById('weeklyChart').getContext('2d');
+    
+    // مرتب‌سازی تاریخ‌ها
+    const dates = Object.keys(dailyActivity).sort();
+    const labels = dates.map(date => {
+        const d = new Date(date);
+        return d.toLocaleDateString('fa-IR', { weekday: 'short' });
+    });
+    
+    const wordsData = dates.map(date => dailyActivity[date].words);
+    const accuracyData = dates.map(date => dailyActivity[date].accuracy);
+    
+    if (weeklyChart) {
+        weeklyChart.destroy();
+    }
+    
+    weeklyChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'تعداد کلمات',
+                    data: wordsData,
+                    borderColor: '#4a6fa5',
+                    backgroundColor: 'rgba(74, 111, 165, 0.1)',
+                    tension: 0.3,
+                    yAxisID: 'y'
+                },
+                {
+                    label: 'دقت (%)',
+                    data: accuracyData,
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    tension: 0.3,
+                    yAxisID: 'y1'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'تعداد کلمات'
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'دقت (%)'
+                    },
+                    min: 0,
+                    max: 100
+                }
+            }
+        }
+    });
+}
+
+function createStatusChart() {
+    // دریافت توزیع وضعیت کلمات
+    $.ajax({
+        url: "{{ url_for('learning.dashboard') }}?json=1",
+        type: 'GET',
+        success: function(data) {
+            const ctx = document.getElementById('statusChart').getContext('2d');
+            const statusData = data.status_distribution;
+            
+            const labels = ['جدید', 'در حال یادگیری', 'ضعیف', 'قوی', 'تسلط یافته'];
+            const values = [
+                statusData.new || 0,
+                statusData.learning || 0,
+                statusData.weak || 0,
+                statusData.strong || 0,
+                statusData.mastered || 0
+            ];
+            
+            const colors = ['#6c757d', '#ffc107', '#fd7e14', '#28a745', '#4a6fa5'];
+            
+            if (statusChart) {
+                statusChart.destroy();
+            }
+            
+            statusChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            rtl: true
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw} کلمه`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+}
+
+function loadWeakWords() {
+    $.ajax({
+        url: "{{ url_for('learning.get_weak_words') }}",
+        type: 'GET',
+        success: function(data) {
+            displayWeakWords(data.words);
+        }
+    });
+}
+
+function displayWeakWords(words) {
+    if (words.length === 0) {
+        $('#weakWordsList').html(`
+            <div class="text-center py-4">
+                <i class="bi bi-emoji-smile display-4 text-success mb-3"></i>
+                <p class="text-muted">آفرین! تمام کلمات شما در وضعیت خوبی هستند.</p>
+                <a href="{{ url_for('learning.start_session') }}" class="btn btn-primary">
+                    شروع جلسه جدید
+                </a>
+            </div>
+        `);
+        return;
+    }
+    
+    let html = '<div class="table-responsive">';
+    html += '<table class="table table-hover">';
+    html += '<thead><tr><th>کلمه</th><th>معنی</th><th>وضعیت</th><th>آخرین مرور</th><th>عملکرد</th></tr></thead>';
+    html += '<tbody>';
+    
+    words.forEach(word => {
+        const strengthColor = word.strength < 30 ? 'danger' : 
+                            word.strength < 60 ? 'warning' : 'success';
+        
+        html += `
+            <tr>
+                <td>
+                    <strong>${word.display_text || word.lemma}</strong>
+                    ${word.article ? `<small class="text-muted">${word.article}</small>` : ''}
+                </td>
+                <td>${word.translation}</td>
+                <td>
+                    <span class="badge bg-${strengthColor}">
+                        ${word.strength}%
+                    </span>
+                </td>
+                <td>${word.last_reviewed}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary" 
+                            onclick="practiceWord(${word.user_word_id})">
+                        <i class="bi bi-lightning"></i> تمرین
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+    
+    html += '</tbody></table></div>';
+    $('#weakWordsList').html(html);
+}
+
+function practiceWord(userWordId) {
+    // تمرین روی کلمه خاص
+    $.ajax({
+        url: `/practice_word/${userWordId}`,
+        type: 'GET',
+        success: function(response) {
+            // نمایش تمرین در مودال
+            showPracticeModal(response);
+        }
+    });
+}
+
+function showPracticeModal(exercise) {
+    // پیاده‌سازی مودال تمرین اختصاصی
+    console.log('Practice exercise:', exercise);
+    alert('ویژگی تمرین اختصاصی به زودی اضافه می‌شود!');
+}
+</script>
+{% endblock %}

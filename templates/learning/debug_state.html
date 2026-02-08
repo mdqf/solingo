@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}دیباگ وضعیت - Solingo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">🔧 دیباگ وضعیت کاربر</h1>
+    
+    <!-- اطلاعات کاربر -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">👤 اطلاعات کاربر</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>ID:</strong> {{ user_info.id }}</p>
+                    <p><strong>نام کاربری:</strong> {{ user_info.username }}</p>
+                    <p><strong>سطح:</strong> {{ user_info.level }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>استریک:</strong> {{ user_info.streak }} روز</p>
+                    <p><strong>آخرین فعالیت:</strong> {{ user_info.last_active }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- آمار کلمات -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">📊 آمار کلمات</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>کل کلمات موجود در سطح:</strong> {{ words_info.total_words_in_level }}</p>
+                    <p><strong>کلمات کاربر:</strong> {{ words_info.user_words_total }}</p>
+                    <p><strong>کلمات موعد مرور:</strong> {{ words_info.due_words }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>باید کلمه جدید معرفی شود؟</strong> 
+                        <span class="badge bg-{% if words_info.should_introduce_new %}success{% else %}warning{% endif %}">
+                            {{ words_info.should_introduce_new }}
+                        </span>
+                    </p>
+                    <p><strong>کلمات جدید موجود:</strong> {{ words_info.new_words_available }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- توزیع وضعیت -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">📈 توزیع وضعیت کلمات</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for state, count in states_dist.items() %}
+                <div class="col-md-2 col-4 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="h4">{{ count }}</div>
+                            <small class="text-muted">{{ state }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- لاگ کامل -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">📝 لاگ کامل</h5>
+        </div>
+        <div class="card-body">
+            <pre style="white-space: pre-wrap; font-family: monospace;">{{ log }}</pre>
+        </div>
+    </div>
+    
+    <!-- دکمه‌های action -->
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('learning.api_start_session') }}" class="btn btn-primary me-2">
+            تست شروع جلسه (API)
+        </a>
+        <a href="{{ url_for('learning.start_session') }}" class="btn btn-success me-2">
+            بازگشت به شروع جلسه
+        </a>
+        <a href="{{ url_for('load_vocabulary') }}" class="btn btn-warning">
+            بارگذاری کلمات
+        </a>
+    </div>
+</div>
+{% endblock %}
