@@ -1,0 +1,737 @@
+{% extends "base.html" %}
+
+{% block title %}سولینگو - یادگیری زبان بصورت هوشمند{% endblock %}
+
+{% block styles %}
+<style>
+    /* استایل‌های صفحه درس */
+    .container-fluid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* هدر درس */
+    .lesson-header {
+        background: linear-gradient(135deg, var(--dark-bg), #2d3038);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    body.light-mode .lesson-header {
+        background: linear-gradient(135deg, var(--light-card), #f8f9fa);
+        border: 1px solid var(--light-border);
+    }
+
+    .lesson-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(254, 184, 133, 0.1) 0%, transparent 70%);
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 16px;
+        transition: all 0.3s ease;
+        padding: 8px 16px;
+        border-radius: 8px;
+        background: rgba(254, 184, 133, 0.1);
+    }
+
+    .back-button:hover {
+        background: rgba(254, 184, 133, 0.2);
+        transform: translateX(-4px);
+        color: #ff9e5c;
+    }
+
+    .back-button i {
+        transform: rotate(180deg);
+    }
+
+    .lesson-title {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    body.light-mode .lesson-title {
+        color: var(--light-text);
+    }
+
+    .stats-bar {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 12px 20px;
+        color: var(--text-light);
+        font-size: 14px;
+    }
+
+    body.light-mode .stats-bar {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--light-text-secondary);
+    }
+
+    /* کانتینر کلمات */
+    .words-container {
+        background: var(--dark-bg);
+        border-radius: 16px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .words-container {
+        background: var(--light-card);
+        border: 1px solid var(--light-border);
+    }
+
+    .words-container h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(254, 184, 133, 0.2);
+    }
+
+    /* کارت کلمات */
+    #words-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .word-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    body.light-mode .word-card {
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid var(--light-border);
+    }
+
+    .word-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        border-color: rgba(254, 184, 133, 0.3);
+    }
+
+    .word-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .word-german {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 4px;
+    }
+
+    body.light-mode .word-german {
+        color: var(--light-text);
+    }
+
+    .article {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-left: 4px;
+    }
+
+    .word-pronunciation {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        font-style: italic;
+    }
+
+    body.light-mode .word-pronunciation {
+        color: var(--light-text-secondary);
+    }
+
+    .learning-level {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-light);
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 6px 12px;
+        border-radius: 20px;
+    }
+
+    body.light-mode .learning-level {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--light-text-secondary);
+    }
+
+    /* نمایش‌دهنده سطح */
+    .level-indicator {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+
+    /* رنگ‌های مختلف برای سطوح مختلف */
+    .level-0 {
+        background: #495057;
+        color: #fff;
+    }
+
+    .level-1 {
+        background: #dc3545;
+        color: #fff;
+    }
+
+    .level-2 {
+        background: #fd7e14;
+        color: #fff;
+    }
+
+    .level-3 {
+        background: #ffc107;
+        color: #212529;
+    }
+
+    .level-4 {
+        background: #20c997;
+        color: #fff;
+    }
+
+    .level-5 {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    .level-6 {
+        background: #6f42c1;
+        color: #fff;
+    }
+
+    .word-english {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding-right: 16px;
+        border-right: 3px solid rgba(254, 184, 133, 0.3);
+    }
+
+    body.light-mode .word-english {
+        color: var(--light-text);
+    }
+
+    /* کنترل‌های یادگیری */
+    .learning-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .learning-controls {
+        border-top: 1px solid var(--light-border);
+    }
+
+    .level-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 12px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-light);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    body.light-mode .level-btn {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--light-text);
+    }
+
+    .level-btn:hover {
+        background: rgba(254, 184, 133, 0.2);
+        color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .level-btn.active {
+        background: var(--primary-color);
+        color: #212329;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(254, 184, 133, 0.3);
+    }
+
+    .level-btn[data-change] {
+        font-size: 1rem;
+    }
+
+    .level-btn[data-change="-1"]:hover {
+        background: rgba(220, 53, 69, 0.2);
+        color: #dc3545;
+    }
+
+    .level-btn[data-change="1"]:hover {
+        background: rgba(32, 201, 151, 0.2);
+        color: #20c997;
+    }
+
+    .ignored-btn {
+        margin-right: auto;
+        background: rgba(108, 117, 125, 0.2) !important;
+    }
+
+    .ignored-btn:hover {
+        background: rgba(108, 117, 125, 0.3) !important;
+        color: #6c757d !important;
+    }
+
+    /* دکمه شروع یادگیری */
+    .start-learning-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, var(--primary-color), #ff9e5c);
+        border: none;
+        border-radius: 12px;
+        color: #212329;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 30px;
+    }
+
+    .start-learning-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(254, 184, 133, 0.4);
+        background: linear-gradient(135deg, #ff9e5c, var(--primary-color));
+    }
+
+    .start-learning-btn:active {
+        transform: translateY(-1px);
+    }
+
+    /* انیمیشن‌ها */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .level-btn.active {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeInWord {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .word-card {
+        animation: fadeInWord 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    /* ایجاد تأخیر برای انیمیشن کارت‌ها */
+    .word-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .word-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .word-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .word-card:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .word-card:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .word-card:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .word-card:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    .word-card:nth-child(8) {
+        animation-delay: 0.8s;
+    }
+
+    .word-card:nth-child(9) {
+        animation-delay: 0.9s;
+    }
+
+    .word-card:nth-child(10) {
+        animation-delay: 1s;
+    }
+
+    /* رسپانسیو */
+    @media (max-width: 768px) {
+        .container-fluid {
+            padding: 15px;
+        }
+
+        .lesson-header {
+            padding: 20px;
+        }
+
+        .words-container {
+            padding: 20px;
+        }
+
+        .word-header {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .learning-level {
+            align-self: flex-start;
+        }
+
+        .learning-controls {
+            justify-content: center;
+        }
+
+        .ignored-btn {
+            margin-right: 0;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .lesson-title {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .level-btn {
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            font-size: 0.8rem;
+        }
+
+        .word-german {
+            font-size: 1.25rem;
+        }
+
+        .start-learning-btn {
+            font-size: 1rem;
+            padding: 14px;
+        }
+    }
+
+    /* استایل برای کلمات نادیده گرفته شده */
+    .word-card[data-ignored="true"] {
+        opacity: 0.6;
+        background: rgba(108, 117, 125, 0.1);
+    }
+
+    .word-card[data-ignored="true"] .word-german,
+    .word-card[data-ignored="true"] .word-english {
+        text-decoration: line-through;
+        color: #6c757d;
+    }
+
+    /* استایل برای حالت در حال بارگذاری */
+    #words-list.loading {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #words-list.loading::after {
+        content: '';
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(254, 184, 133, 0.3);
+        border-top-color: var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="lesson-header">
+        <a href="{{ url_for('index') }}" class="back-button">
+            <i class="fas fa-arrow-right"></i> بازگشت به لیست دروس
+        </a>
+        <h1 class="lesson-title">درس {{ lesson_id }}</h1>
+        <div class="stats-bar">
+            <span id="lesson-stats">در حال بارگذاری آمار...</span>
+        </div>
+    </div>
+
+    <div class="words-container">
+        <h3>کلمات این درس</h3>
+        <div id="words-list">
+            {% for word in words %}
+            <div class="word-card" data-lemma="{{ word.word.lemma }}">
+                <div class="word-header">
+                    <div>
+                        <div class="word-german">
+                            {% if word.word.article and word.word.article != 'None' %}
+                            <span class="article">{{ word.word.article }}</span>
+                            {% endif %}
+                            {{ word.word.lemma }}
+                        </div>
+                        <div class="word-pronunciation">{{ word.word.Pronunciation }}</div>
+                    </div>
+                    <div class="learning-level">
+                        سطح یادگیری:
+                        <span class="level-indicator level-{{ word.learning_level|default(0) }}">
+                            {{ word.learning_level|default(0) }}
+                        </span>
+                    </div>
+                </div>
+                <div class="word-english">{{ word.word.English }}</div>
+
+                <div class="learning-controls">
+                    <button class="level-btn" data-change="-1" title="کاهش سطح">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                    {% for i in range(0, 7) %}
+                    <button class="level-btn {% if word.learning_level|default(0) == i %}active{% endif %}"
+                        data-level="{{ i }}" title="سطح {{ i }}">
+                        {{ i }}
+                    </button>
+                    {% endfor %}
+                    <button class="level-btn" data-change="1" title="افزایش سطح">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <button class="level-btn ignored-btn" data-ignore="true" title="نادیده گرفتن">
+                        <i class="fas fa-eye-slash"></i> نادیده گرفتن
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="start-learning-btn" onclick="startLearning('{{ lesson_id }}')">
+            <i class="fas fa-play"></i> شروع یادگیری این درس
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadLessonStats();
+
+        // رویدادهای تغییر سطح
+        document.querySelectorAll('.level-btn').forEach(btn => {
+            btn.addEventListener('click', async function (e) {
+                const wordCard = e.currentTarget.closest('.word-card');
+                const lemma = wordCard.dataset.lemma;
+                const change = e.currentTarget.dataset.change;
+                const level = e.currentTarget.dataset.level;
+                const ignore = e.currentTarget.dataset.ignore;
+
+                if (typeof ignore !== 'undefined') {
+                    await toggleIgnoreWord(lemma, wordCard);
+                    return;
+                }
+
+                if (typeof level !== 'undefined') {
+                    await updateWordLevel(lemma, level, wordCard);
+                } else if (typeof change !== 'undefined') {
+                    await updateWordLevel(lemma, change, wordCard);
+                }
+            });
+        });
+    });
+
+    async function loadLessonStats() {
+        try {
+            const response = await fetch('/api/get_session/{{ lesson_id }}', {
+                method: 'GET',
+            });
+            
+            const data = await response.json();
+            
+            console.log(data);
+            if (data.status === 'success') {
+                const statsText =
+                    `${data.learned_words} از ${data.total_words} کلمه یاد گرفته شده | ` +
+                    `${data.level_6_words} کلمه در حافظه بلندمدت | ` +
+                    `${data.ignored_words} نادیده گرفته شده`;
+                document.getElementById('lesson-stats').textContent = statsText;
+            }
+        } catch (error) {
+            console.error('خطا در دریافت آمار درس:', error);
+        }
+    }
+
+    async function updateWordLevel(lemma, change, wordCard) {
+        try {
+            const response = await fetch('/api/update_score', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    lemma: lemma,
+                    change: parseInt(change)
+                })
+            });
+
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                // به‌روزرسانی وضعیت کلمه
+                await loadWordStatus(lemma, wordCard);
+                // به‌روزرسانی آمار درس
+                await loadLessonStats();
+            }
+        } catch (error) {
+            alert('خطا در به‌روزرسانی سطح کلمه');
+            console.error('Error:', error);
+        }
+    }
+
+    async function toggleIgnoreWord(lemma, wordCard) {
+        try {
+            const response = await fetch('/api/toggle_ignore_word', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    lemma: lemma,
+                    lesson_id: '{{ lesson_id }}'
+                })
+            });
+
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                wordCard.classList.toggle('ignored', data.ignored);
+                
+                const btn = wordCard.querySelector('[data-ignore="true"]');
+                if (data.ignored) {
+                    btn.innerHTML = '<i class="fas fa-eye"></i> لغو نادیده گرفتن';
+                    btn.classList.remove('ignored-btn');
+                    btn.classList.add('warning-btn');
+                } else {
+                    btn.innerHTML = '<i class="fas fa-eye-slash"></i> نادیده گرفتن';
+                    btn.classList.add('ignored-btn');
+                    btn.classList.remove('warning-btn');
+                }
+                
+                await loadLessonStats();
+            }
+        } catch (error) {
+            console.error('Error toggling ignore:', error);
+            alert('خطا در تغییر وضعیت نادیده گرفتن');
+        }
+    }
+
+    async function loadWordStatus(lemma, wordCard) {
+        try {
+            const response = await fetch('/api/get_word_status/' + encodeURIComponent(lemma), {
+                method: 'GET',
+            });
+            
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                const level = data.level;
+                
+                // به‌روزرسانی نشانگر سطح
+                const indicator = wordCard.querySelector('.level-indicator');
+                indicator.className = ''; // پاک کردن کلاس‌های قبلی
+                indicator.classList.add('level-indicator', 'level-' + level);
+                indicator.textContent = level;
+
+                // به‌روزرسانی دکمه‌های سطح
+                wordCard.querySelectorAll('.level-btn[data-level]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                const activeBtn = wordCard.querySelector(`.level-btn[data-level="${level}"]`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                }
+            }
+        } catch (error) {
+            console.error('Error loading word status:', error);
+        }
+    }
+
+    function startLearning(lessonId) {
+        window.location.href = '/learn/' + lessonId;
+    }
+</script>
+{% endblock %}

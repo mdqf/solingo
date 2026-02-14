@@ -1,0 +1,1118 @@
+[
+    {
+        "word": {
+            "lemma": "auto",
+            "article": "das",
+            "plural": "Autos",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Fahrzeug mit vier Rädern",
+            "persian_translation": "خودرو"
+        },
+        "example": {
+            "german_sentence": "Das Auto ist schnell.",
+            "persian_translation": "خودرو سریع است."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯toː /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fahrrad",
+            "article": "das",
+            "plural": "Fahrräder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Fahrzeug mit zwei Rädern",
+            "persian_translation": "دوچرخه"
+        },
+        "example": {
+            "german_sentence": "Mein Fahrrad ist neu.",
+            "persian_translation": "دوچرخه من نو است."
+        },
+        "audio": {
+            "ipa": "/ˈfaːɐ̯ʁat /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bus",
+            "article": "der",
+            "plural": "Busse",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein großes Fahrzeug für viele Leute",
+            "persian_translation": "اتوبوس"
+        },
+        "example": {
+            "german_sentence": "Der Bus kommt jetzt.",
+            "persian_translation": "اتوبوس الان می‌آید."
+        },
+        "audio": {
+            "ipa": "/bʊs /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "haltestelle",
+            "article": "die",
+            "plural": "Haltestellen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz für den Bus",
+            "persian_translation": "ایستگاه"
+        },
+        "example": {
+            "german_sentence": "Ich warte an der Haltestelle.",
+            "persian_translation": "من در ایستگاه منتظر می‌مانم."
+        },
+        "audio": {
+            "ipa": "/ˈhaltəʃtɛlə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "taxi",
+            "article": "das",
+            "plural": "Taxis",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Auto mit Fahrer",
+            "persian_translation": "تاکسی"
+        },
+        "example": {
+            "german_sentence": "Das Taxi ist hier.",
+            "persian_translation": "تاکسی اینجا است."
+        },
+        "audio": {
+            "ipa": "/ˈtaksi /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bahn",
+            "article": "die",
+            "plural": "Bahnen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Zug auf Schienen",
+            "persian_translation": "قطار"
+        },
+        "example": {
+            "german_sentence": "Die Bahn ist pünktlich.",
+            "persian_translation": "قطار خوش‌قول (به‌موقع) است."
+        },
+        "audio": {
+            "ipa": "/baːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bahnhof",
+            "article": "der",
+            "plural": "Bahnhöfe",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Gebäude für Züge",
+            "persian_translation": "ایستگاه راه‌آهن"
+        },
+        "example": {
+            "german_sentence": "Der Bahnhof ist groß.",
+            "persian_translation": "ایستگاه راه‌آهن بزرگ است."
+        },
+        "audio": {
+            "ipa": "/ˈbaːnhoːf /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bahnsteig",
+            "article": "der",
+            "plural": "Bahnsteige",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Platz am Gleis",
+            "persian_translation": "سکوی ایستگاه قطار"
+        },
+        "example": {
+            "german_sentence": "Wir warten auf dem Bahnsteig.",
+            "persian_translation": "ما روی سکوی ایستگاه منتظر می‌مانیم."
+        },
+        "audio": {
+            "ipa": "/ˈbaːnʃtaɪ̯k /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gleis",
+            "article": "das",
+            "plural": "Gleise",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Schienen für den Zug",
+            "persian_translation": "ریل (قطار)"
+        },
+        "example": {
+            "german_sentence": "Der Zug steht auf Gleis 4.",
+            "persian_translation": "قطار روی ریل ۴ ایستاده است."
+        },
+        "audio": {
+            "ipa": "/ɡlaɪ̯s /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "s-bahn",
+            "article": "die",
+            "plural": "S-Bahnen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Bahn in der Stadt",
+            "persian_translation": "قطار سریع‌السیر"
+        },
+        "example": {
+            "german_sentence": "Ich nehme die S-Bahn.",
+            "persian_translation": "من با قطار سریع‌السیر می‌روم."
+        },
+        "audio": {
+            "ipa": "/ˈɛsˌbaːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "straßenbahn",
+            "article": "die",
+            "plural": "Straßenbahnen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Bahn auf der Straße",
+            "persian_translation": "تراموا"
+        },
+        "example": {
+            "german_sentence": "Die Straßenbahn fährt schnell.",
+            "persian_translation": "تراموا سریع حرکت می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈʃtʀaːsənˌbaːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "zug",
+            "article": "der",
+            "plural": "Züge",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Transportmittel auf Schienen",
+            "persian_translation": "قطار"
+        },
+        "example": {
+            "german_sentence": "Der Zug fährt nach Berlin.",
+            "persian_translation": "قطار به سمت برلین می‌رود."
+        },
+        "audio": {
+            "ipa": "/t͡suːk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "flugzeug",
+            "article": "das",
+            "plural": "Flugzeuge",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Transportmittel in der Luft",
+            "persian_translation": "هواپیما"
+        },
+        "example": {
+            "german_sentence": "Das Flugzeug fliegt hoch.",
+            "persian_translation": "هواپیما در ارتفاع بالا پرواز می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈfluːktsɔʏ̯k /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "flughafen",
+            "article": "der",
+            "plural": "Flughäfen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz für Flugzeuge",
+            "persian_translation": "فرودگاه"
+        },
+        "example": {
+            "german_sentence": "Der Flughafen ist weit.",
+            "persian_translation": "فرودگاه دور است."
+        },
+        "audio": {
+            "ipa": "/ˈfluːkˌhaːfən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "LKW",
+            "article": "der",
+            "plural": "LKWs",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Lastkraftwagen",
+            "persian_translation": "کامیون"
+        },
+        "example": {
+            "german_sentence": "Der LKW transportiert Obst.",
+            "persian_translation": "کامیون میوه حمل می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈɛlkaˌveː /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "autobahn",
+            "article": "die",
+            "plural": "Autobahnen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine große Straße für Autos",
+            "persian_translation": "بزرگراه"
+        },
+        "example": {
+            "german_sentence": "Die Autobahn ist frei.",
+            "persian_translation": "بزرگراه خلوت (آزاد) است."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯toˌbaːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "straße",
+            "article": "die",
+            "plural": "Straßen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Weg für Fahrzeuge",
+            "persian_translation": "خیابان"
+        },
+        "example": {
+            "german_sentence": "Die Straße ist breit.",
+            "persian_translation": "خیابان پهن است."
+        },
+        "audio": {
+            "ipa": "/ˈʃtʀaːsə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fahrer",
+            "article": "der",
+            "plural": "Fahrer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Person, die ein Auto fährt",
+            "persian_translation": "راننده"
+        },
+        "example": {
+            "german_sentence": "Der Fahrer trägt eine Brille.",
+            "persian_translation": "راننده یک عینک دارد."
+        },
+        "audio": {
+            "ipa": "/ˈfaːʁɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fahrkarte",
+            "article": "die",
+            "plural": "Fahrkarten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Ticket für den Zug",
+            "persian_translation": "بلیط"
+        },
+        "example": {
+            "german_sentence": "Die Fahrkarte kostet viel.",
+            "persian_translation": "بلیط هزینه زیادی دارد."
+        },
+        "audio": {
+            "ipa": "/ˈfaːʁkaʁtə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schalter",
+            "article": "der",
+            "plural": "Schalter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Platz für Tickets",
+            "persian_translation": "پیشخوان"
+        },
+        "example": {
+            "german_sentence": "Ich gehe zum Schalter.",
+            "persian_translation": "من به پیشخوان می‌روم."
+        },
+        "audio": {
+            "ipa": "/ˈʃaltɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schild",
+            "article": "das",
+            "plural": "Schilder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Tafel mit Information",
+            "persian_translation": "تابلو (رانندگی)"
+        },
+        "example": {
+            "german_sentence": "Das Schild ist gelb.",
+            "persian_translation": "تابلو زرد است."
+        },
+        "audio": {
+            "ipa": "/ʃɪlt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "achtung",
+            "article": "die",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Signal für Gefahr",
+            "persian_translation": "اخطار"
+        },
+        "example": {
+            "german_sentence": "Achtung! Der Zug kommt.",
+            "persian_translation": "اخطار! قطار می‌آید."
+        },
+        "audio": {
+            "ipa": "/ˈaxtʊŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "vorsicht",
+            "article": "die",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Man muss aufpassen",
+            "persian_translation": "احتیاط"
+        },
+        "example": {
+            "german_sentence": "Vorsicht bei der Fahrt!",
+            "persian_translation": "هنگام رانندگی احتیاط کنید!"
+        },
+        "audio": {
+            "ipa": "/ˈfoːʁˌzɪçt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "abfahrt",
+            "article": "die",
+            "plural": "Abfahrten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Zeit der Abreise",
+            "persian_translation": "حرکت"
+        },
+        "example": {
+            "german_sentence": "Die Abfahrt ist um acht.",
+            "persian_translation": "حرکت ساعت هشت است."
+        },
+        "audio": {
+            "ipa": "/ˈapfaːɐt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "abflug",
+            "article": "der",
+            "plural": "Abflüge",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Start eines Flugzeugs",
+            "persian_translation": "زمان پرواز (هواپیما)"
+        },
+        "example": {
+            "german_sentence": "Der Abflug ist pünktlich.",
+            "persian_translation": "زمان پرواز به‌موقع است."
+        },
+        "audio": {
+            "ipa": "/ˈapfluːk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gepäck",
+            "article": "das",
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Taschen für die Reise",
+            "persian_translation": "چمدان"
+        },
+        "example": {
+            "german_sentence": "Das Gepäck ist schwer.",
+            "persian_translation": "چمدان سنگین است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈpɛk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "koffer",
+            "article": "der",
+            "plural": "Koffer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Behälter für Kleidung",
+            "persian_translation": "چمدان"
+        },
+        "example": {
+            "german_sentence": "Mein Koffer ist blau.",
+            "persian_translation": "چمدان من آبی است."
+        },
+        "audio": {
+            "ipa": "/ˈkɔfɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "Rad fahren",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Mit dem Fahrrad fahren",
+            "persian_translation": "دوچرخه‌سواری کردن"
+        },
+        "example": {
+            "german_sentence": "Ich fahre gerne Rad.",
+            "persian_translation": "من با علاقه دوچرخه‌سواری می‌کنم."
+        },
+        "audio": {
+            "ipa": "/rˈɑːt fˈɑːrən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fliegen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "In der Luft reisen",
+            "persian_translation": "پرواز کردن"
+        },
+        "example": {
+            "german_sentence": "Wir fliegen nach Rom.",
+            "persian_translation": "ما به رم پرواز می‌کنیم."
+        },
+        "audio": {
+            "ipa": "/ˈfliːɡən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "abfliegen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Mit dem Flugzeug starten",
+            "persian_translation": "حرکت کردن (هواپیما)"
+        },
+        "example": {
+            "german_sentence": "Das Flugzeug fliegt bald ab.",
+            "persian_translation": "هواپیما به‌زودی حرکت می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈapˌfliːɡən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "fahren",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Fahrzeug nutzen",
+            "persian_translation": "راندن"
+        },
+        "example": {
+            "german_sentence": "Er fährt ein Auto.",
+            "persian_translation": "او یک خودرو می‌راند."
+        },
+        "audio": {
+            "ipa": "/ˈfaːʁən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kommen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Hierher gelangen",
+            "persian_translation": "آمدن"
+        },
+        "example": {
+            "german_sentence": "Ich komme aus Deutschland.",
+            "persian_translation": "من از آلمان می‌آیم."
+        },
+        "audio": {
+            "ipa": "/ˈkɔmən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gehen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Zu Fuß bewegen",
+            "persian_translation": "رفتن"
+        },
+        "example": {
+            "german_sentence": "Wir gehen nach Hause.",
+            "persian_translation": "ما به خانه می‌رویم."
+        },
+        "audio": {
+            "ipa": "/ˈɡeː.ən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "einsteigen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "In ein Fahrzeug gehen",
+            "persian_translation": "سوار شدن"
+        },
+        "example": {
+            "german_sentence": "Ich steige in den Bus ein.",
+            "persian_translation": "من سوار اتوبوس می‌شوم."
+        },
+        "audio": {
+            "ipa": "/ˈaɪ̯nʃtaɪ̯ɡən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "aussteigen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Fahrzeug verlassen",
+            "persian_translation": "پیاده شدن"
+        },
+        "example": {
+            "german_sentence": "Du steigst am Bahnhof aus.",
+            "persian_translation": "تو در ایستگاه پیاده می‌شوی."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯sʃtaɪ̯ɡən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "abfahren",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "7"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Reise starten",
+            "persian_translation": "راه افتادن (با ماشین یا قطار)"
+        },
+        "example": {
+            "german_sentence": "Der Bus fährt jetzt ab.",
+            "persian_translation": "اتوبوس الان راه می‌افتد."
+        },
+        "audio": {
+            "ipa": "/ˈapfaːrən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

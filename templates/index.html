@@ -1,0 +1,747 @@
+{% extends "base.html" %}
+
+{% block title %}سولینگو - یادگیری زبان بصورت هوشمند{% endblock %}
+
+{% block content %}
+<div class="min-h-screen gradient-hero">
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="animate-fade-in">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-gentle-pulse"></span>
+                    یادگیری زبان هوشمند
+                </div>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in"
+                style="animation-delay: 100ms">
+                زبان یاد بگیرید
+                <br>
+                <span class="text-gradient">بدون فکر کردن</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in"
+                style="animation-delay: 200ms">
+                جلسات روزانه شخصی‌سازی شده، بهینه‌سازی شده برای هدف شما.
+                ما دقیقاً می‌گوییم چه چیزی را بعدی بخوانید — شما فقط حاضر شوید.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in"
+                style="animation-delay: 300ms">
+                <a href="{{ url_for('lessons') }}" class="mdc-button mdc-button--raised hero-button"
+                    data-mdc-auto-init="MDCRipple">
+                    <span class="mdc-button__label">شروع یادگیری رایگان</span>
+                </a>
+                <a href="{{ url_for('lessons') }}" class="mdc-button mdc-button--outlined"
+                    data-mdc-auto-init="MDCRipple">
+                    <span class="mdc-button__label">حساب دارم</span>
+                </a>
+            </div>
+
+            <p class="text-sm text-muted-foreground mt-6 animate-fade-in" style="animation-delay: 400ms">
+                بدون نیاز به کارت اعتباری · ۵ دقیقه تا اولین درس شما
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 bg-card/50">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    ساخته شده برای پیشرفت واقعی
+                </h2>
+                <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+                    بیشتر اپ‌ها برای تعامل بهینه‌سازی می‌شوند. Solingo برای یادگیری بهینه‌سازی شده.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% set features = [
+                {
+                'icon': 'psychology',
+                'title': 'یادگیری تطبیقی',
+                'description': 'تکرار با فاصله مبتنی بر هوش مصنوعی که الگوهای شما را یاد می‌گیرد'
+                },
+                {
+                'icon': 'flag',
+                'title': 'متمرکز بر هدف',
+                'description': 'هر جلسه حول اهداف خاص شما طراحی شده است'
+                },
+                {
+                'icon': 'schedule',
+                'title': 'بهینه‌سازی زمان',
+                'description': 'جلسات مطالعه‌ای که با برنامه شما سازگار است'
+                },
+                {
+                'icon': 'bolt',
+                'title': 'بدون خستگی تصمیم',
+                'description': 'ما تصمیم می‌گیریم چه چیزی را بعدی بخوانید. شما فقط حاضر شوید.'
+                },
+                {
+                'icon': 'trending_up',
+                'title': 'پیشرفت قابل اندازه‌گیری',
+                'description': 'سطح CEFR، دایره واژگان و نرخ حفظ خود را پیگیری کنید'
+                },
+                {
+                'icon': 'translate',
+                'title': 'درک واقعی',
+                'description': 'برای درک یاد بگیرید، نه فقط تشخیص'
+                }
+                ] %}
+
+                {% for feature in features %}
+                <div class="group p-6 rounded-2xl bg-card border border-border/50 card-hover animate-fade-in"
+                    style="animation-delay: {{ loop.index0 * 100 }}ms">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <span class="material-icons text-primary">{{ feature.icon }}</span>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 text-right">{{ feature.title }}</h3>
+                    <p class="text-muted-foreground text-right">{{ feature.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Solingo چگونه کار می‌کند؟
+                </h2>
+                <p class="text-muted-foreground text-lg">
+                    سه مرحله برای یادگیری زبان هوشمندانه‌تر
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                {% set steps = [
+                {
+                'step': '۰۱',
+                'title': 'هدف خود را به ما بگویید',
+                'description': 'سفر، کار، امتحان یا مکالمه روزانه — هدف شما همه چیز را شکل می‌دهد.'
+                },
+                {
+                'step': '۰۲',
+                'title': 'ارزیابی سریع',
+                'description': 'یک آزمون تطبیقی سطح دقیق شما را در کمتر از ۵ دقیقه پیدا می‌کند.'
+                },
+                {
+                'step': '۰۳',
+                'title': 'شروع یادگیری',
+                'description': 'جلسات روزانه شخصی‌سازی شده دریافت کنید. بدون تصمیم‌گیری. فقط پیشرفت.'
+                }
+                ] %}
+
+                {% for step in steps %}
+                <div class="flex items-start gap-6 p-6 rounded-2xl bg-card border border-border/50 animate-fade-in"
+                    style="animation-delay: {{ loop.index0 * 150 }}ms">
+                    <div
+                        class="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center text-primary-foreground font-bold text-lg shrink-0">
+                        {{ step.step }}
+                    </div>
+                    <div style="text-align: right;">
+                        <h3 class="font-semibold text-xl mb-2">{{ step.title }}</h3>
+                        <p class="text-muted-foreground">{{ step.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-card/50">
+        <div class="container mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                آماده شروع هستید؟
+            </h2>
+            <p class="text-muted-foreground text-lg mb-8">
+                به هزاران زبان‌آموز بپیوندید که هر روز پیشرفت واقعی می‌کنند.
+            </p>
+            <a href="{{ url_for('lessons') }}" class="mdc-button mdc-button--raised hero-button"
+                data-mdc-auto-init="MDCRipple">
+                <span class="mdc-button__label">حساب رایگان ایجاد کنید</span>
+            </a>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* متغیرهای رنگ جدید برای لندینگ */
+    :root {
+        /* رنگ‌های لندینگ */
+        --primary: #6366f1;
+        --primary-foreground: #ffffff;
+        --muted-foreground: #64748b;
+        --card: rgba(255, 255, 255, 0.05);
+        --card-hover: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.1);
+        --gradient-from: #8b5cf6;
+        --gradient-to: #3b82f6;
+    }
+
+    body.light-mode {
+        --primary: #4f46e5;
+        --muted-foreground: #6b7280;
+        --card: rgba(255, 255, 255, 0.8);
+        --card-hover: rgba(255, 255, 255, 0.9);
+        --border: rgba(0, 0, 0, 0.1);
+        --gradient-from: #7c3aed;
+        --gradient-to: #2563eb;
+    }
+
+    /* استایل‌های عمومی برای لندینگ */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .max-w-4xl {
+        max-width: 56rem;
+    }
+
+    .max-w-6xl {
+        max-width: 72rem;
+    }
+
+    .max-w-2xl {
+        max-width: 42rem;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* بخش هیرو */
+    .pt-32 {
+        padding-top: 8rem;
+    }
+
+    .pb-20 {
+        padding-bottom: 5rem;
+    }
+
+    .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    /* تایپوگرافی */
+    .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+
+    .md\:text-6xl {
+        @media (min-width: 768px) {
+            font-size: 3.75rem;
+            line-height: 1;
+        }
+    }
+
+    .lg\:text-7xl {
+        @media (min-width: 1024px) {
+            font-size: 4.5rem;
+            line-height: 1;
+        }
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .tracking-tight {
+        letter-spacing: -0.025em;
+    }
+
+    .text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+
+    .md\:text-xl {
+        @media (min-width: 768px) {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+    }
+
+    .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .md\:text-4xl {
+        @media (min-width: 768px) {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+    .font-medium {
+        font-weight: 500;
+    }
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    /* رنگ‌های متن */
+    .text-primary {
+        color: var(--primary);
+    }
+
+    .text-muted-foreground {
+        color: var(--muted-foreground);
+    }
+
+    .text-primary-foreground {
+        color: var(--primary-foreground);
+    }
+
+    /* گرادیانت متن */
+    .text-gradient {
+        background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* کارت‌ها و باکس‌ها */
+    .bg-card {
+        background-color: var(--card);
+    }
+
+    .bg-card\/50 {
+        background-color: color-mix(in srgb, var(--card) 50%, transparent);
+    }
+
+    .bg-primary\/10 {
+        background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    }
+
+    .border-border\/50 {
+        border-color: color-mix(in srgb, var(--border) 50%, transparent);
+    }
+
+    .rounded-full {
+        border-radius: 9999px;
+    }
+
+    .rounded-2xl {
+        border-radius: 1rem;
+    }
+
+    .rounded-xl {
+        border-radius: 0.75rem;
+    }
+
+    .border {
+        border-width: 1px;
+        border-style: solid;
+    }
+
+    /* فلیکس و گرید */
+    .flex {
+        display: flex;
+    }
+
+    .flex-col {
+        flex-direction: column;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .justify-between {
+        justify-content: space-between;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .gap-2 {
+        gap: 0.5rem;
+    }
+
+    .gap-4 {
+        gap: 1rem;
+    }
+
+    .gap-6 {
+        gap: 1.5rem;
+    }
+
+    .space-y-8>*+* {
+        margin-top: 2rem;
+    }
+
+    .grid {
+        display: grid;
+    }
+
+    .md\:grid-cols-2 {
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    .lg\:grid-cols-3 {
+        @media (min-width: 1024px) {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    /* مارجین‌ها */
+    .mb-8 {
+        margin-bottom: 2rem;
+    }
+
+    .mb-6 {
+        margin-bottom: 1.5rem;
+    }
+
+    .mb-10 {
+        margin-bottom: 2.5rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem;
+    }
+
+    .mb-2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .mb-16 {
+        margin-bottom: 4rem;
+    }
+
+    .mt-6 {
+        margin-top: 1.5rem;
+    }
+
+    /* پدینگ‌ها */
+    .p-6 {
+        padding: 1.5rem;
+    }
+
+    .p-4 {
+        padding: 1rem;
+    }
+
+    .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* ابعاد */
+    .w-2 {
+        width: 0.5rem;
+    }
+
+    .h-2 {
+        height: 0.5rem;
+    }
+
+    .w-12 {
+        width: 3rem;
+    }
+
+    .h-12 {
+        height: 3rem;
+    }
+
+    .w-14 {
+        width: 3.5rem;
+    }
+
+    .h-14 {
+        height: 3.5rem;
+    }
+
+    /* انیمیشن‌ها */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+    }
+
+    .animate-gentle-pulse {
+        animation: gentlePulse 2s ease-in-out infinite;
+    }
+
+    /* گرادیانت برای دکمه‌ها و المان‌ها */
+    .gradient-primary {
+        background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+    }
+
+    /* افکت‌ها */
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        background-color: var(--card-hover);
+    }
+
+    .group-hover\:bg-primary\/20:hover {
+        background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+    }
+
+    /* دکمه‌ها */
+    .mdc-button {
+        min-width: 120px;
+        height: 48px;
+        padding: 0 24px;
+        border-radius: 24px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .mdc-button--raised {
+        background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+        color: white;
+        border: none;
+    }
+
+    .mdc-button--raised:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .mdc-button--outlined {
+        background: transparent;
+        border: 2px solid var(--border);
+        color: var(--muted-foreground);
+    }
+
+    .mdc-button--outlined:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background-color: color-mix(in srgb, var(--primary) 5%, transparent);
+    }
+
+    .hero-button {
+        background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+        box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+    }
+
+    .hero-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+    }
+
+    /* رسپانسیو */
+    @media (max-width: 768px) {
+        .pt-32 {
+            padding-top: 6rem;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .sm\:flex-row {
+            @media (min-width: 640px) {
+                flex-direction: row;
+            }
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .text-4xl {
+            font-size: 1.875rem;
+        }
+
+        .text-3xl {
+            font-size: 1.5rem;
+        }
+
+        .p-6 {
+            padding: 1rem;
+        }
+    }
+
+    /* متریال آیکون‌ها */
+    .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ردیف‌های ویژگی‌ها */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    /* مراحل کار */
+    .steps-container {
+        counter-reset: step;
+    }
+
+    .step-item {
+        position: relative;
+        padding-left: 3.5rem;
+    }
+
+    .step-item::before {
+        counter-increment: step;
+        content: counter(step, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.875rem;
+    }
+
+    /* بخش CTA */
+    .cta-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1));
+        z-index: -1;
+    }
+</style>
+
+<script>
+    const current_page = "{{ current_page }}";
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize MDC components
+        const buttons = document.querySelectorAll('.mdc-button');
+        buttons.forEach(button => {
+            mdc.ripple.MDCRipple.attachTo(button);
+        });
+
+        // Profile menu toggle
+        const profileButton = document.getElementById('profileMenuButton');
+        const profileMenu = document.getElementById('profileMenu');
+
+        if (profileButton && profileMenu) {
+            profileButton.addEventListener('click', function (e) {
+                e.stopPropagation();
+                profileMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!profileMenu.contains(e.target) && !profileButton.contains(e.target)) {
+                    profileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Flash messages auto-hide
+        setTimeout(function () {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(message => {
+                message.style.opacity = '0';
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.parentNode.removeChild(message);
+                    }
+                }, 300);
+            });
+        }, 5000);
+    });
+</script>
+{% endblock %}

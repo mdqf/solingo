@@ -1,0 +1,715 @@
+[
+    {
+        "word": {
+            "lemma": "becher",
+            "article": "der",
+            "plural": "Becher",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Gefäß zum Trinken ohne Henkel",
+            "persian_translation": "لیوان (معمولاً پلاستیکی یا کاغذی)"
+        },
+        "example": {
+            "german_sentence": "Der Becher ist leer.",
+            "persian_translation": "لیوان خالی است."
+        },
+        "audio": {
+            "ipa": "/ˈbɛçɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "dose",
+            "article": "die",
+            "plural": "Dosen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Behälter aus Metall oder Plastik",
+            "persian_translation": "قوطی"
+        },
+        "example": {
+            "german_sentence": "Die Dose steht im Regal.",
+            "persian_translation": "قوطی در قفسه قرار دارد."
+        },
+        "audio": {
+            "ipa": "/ˈdoːzə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "flasche",
+            "article": "die",
+            "plural": "Flaschen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein hoher Behälter für Getränke",
+            "persian_translation": "بطری"
+        },
+        "example": {
+            "german_sentence": "Die Flasche ist aus Glas.",
+            "persian_translation": "بطری از شیشه است."
+        },
+        "audio": {
+            "ipa": "/ˈflaʃə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "glas",
+            "article": "das",
+            "plural": "Gläser",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Gefäß zum Trinken aus Glas",
+            "persian_translation": "لیوان (شیشه‌ای)"
+        },
+        "example": {
+            "german_sentence": "Das Glas ist auf dem Tisch.",
+            "persian_translation": "لیوان روی میز است."
+        },
+        "audio": {
+            "ipa": "/ɡlaːs /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "tasse",
+            "article": "die",
+            "plural": "Tassen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein kleines Gefäß mit Henkel für Tee oder Kaffee",
+            "persian_translation": "فنجان"
+        },
+        "example": {
+            "german_sentence": "Ich trinke eine Tasse Tee.",
+            "persian_translation": "من یک فنجان چای می‌نوشم."
+        },
+        "audio": {
+            "ipa": "/ˈtasə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "teller",
+            "article": "der",
+            "plural": "Teller",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein flaches Geschirr für das Essen",
+            "persian_translation": "بشقاب"
+        },
+        "example": {
+            "german_sentence": "Der Teller ist sauber.",
+            "persian_translation": "بشقاب تمیز است."
+        },
+        "audio": {
+            "ipa": "/ˈtɛlɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "packung",
+            "article": "die",
+            "plural": "Packungen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Hülle für Waren",
+            "persian_translation": "بسته"
+        },
+        "example": {
+            "german_sentence": "Die Packung Milch ist offen.",
+            "persian_translation": "بسته شیر باز است."
+        },
+        "audio": {
+            "ipa": "/ˈpakʊŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gewicht",
+            "article": "das",
+            "plural": "Gewichte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "wie schwer etwas ist",
+            "persian_translation": "وزن"
+        },
+        "example": {
+            "german_sentence": "Das Gewicht ist fünf Kilo.",
+            "persian_translation": "وزن پنج کیلو است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈvɪçt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gramm",
+            "article": "das",
+            "plural": "Gramm",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine kleine Einheit für das Gewicht",
+            "persian_translation": "گرم"
+        },
+        "example": {
+            "german_sentence": "Hundert Gramm Käse kosten wenig.",
+            "persian_translation": "صد گرم پنیر قیمت کمی دارد."
+        },
+        "audio": {
+            "ipa": "/ɡʀam /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "pfund",
+            "article": "das",
+            "plural": "Pfunde",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Einheit für das Gewicht (500 Gramm)",
+            "persian_translation": "پوند (نیم کیلو)"
+        },
+        "example": {
+            "german_sentence": "Ich kaufe ein Pfund Brot.",
+            "persian_translation": "من یک پوند نان می‌خرم."
+        },
+        "audio": {
+            "ipa": "/pfʊnt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kilo",
+            "article": "das",
+            "plural": "Kilos",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Einheit für das Gewicht (1000 Gramm)",
+            "persian_translation": "کیلو"
+        },
+        "example": {
+            "german_sentence": "Zwei Kilo Äpfel sind billig.",
+            "persian_translation": "دو کیلو سیب ارزان است."
+        },
+        "audio": {
+            "ipa": "/ˈkiːlo /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "liter",
+            "article": "der",
+            "plural": "Liter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Einheit für Flüssigkeit",
+            "persian_translation": "لیتر"
+        },
+        "example": {
+            "german_sentence": "Ich brauche einen Liter Milch.",
+            "persian_translation": "من به یک لیتر شیر نیاز دارم."
+        },
+        "audio": {
+            "ipa": "/ˈliːtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "preis",
+            "article": "der",
+            "plural": "Preise",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "die Kosten für eine Sache",
+            "persian_translation": "قیمت"
+        },
+        "example": {
+            "german_sentence": "Der Preis ist sehr hoch.",
+            "persian_translation": "قیمت بسیار بالا است."
+        },
+        "audio": {
+            "ipa": "/pʁaɪ̯s /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "euro",
+            "article": "der",
+            "plural": "Euro",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "die Währung in vielen europäischen Ländern",
+            "persian_translation": "یورو"
+        },
+        "example": {
+            "german_sentence": "Das Buch kostet zehn Euro.",
+            "persian_translation": "کتاب ده یورو قیمت دارد."
+        },
+        "audio": {
+            "ipa": "/ˈɔʏ̯ʀoː /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "cent",
+            "article": "der",
+            "plural": "Cent",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "der hundertste Teil eines Euros",
+            "persian_translation": "سنت"
+        },
+        "example": {
+            "german_sentence": "Das Ei kostet fünfzig Cent.",
+            "persian_translation": "تخم‌مرغ پنجاه سنت قیمت دارد."
+        },
+        "audio": {
+            "ipa": "/sɛnt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "rechnung",
+            "article": "die",
+            "plural": "Rechnungen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Papier mit dem Preis für eine Ware",
+            "persian_translation": "صورت‌حساب"
+        },
+        "example": {
+            "german_sentence": "Ich bezahle die Rechnung.",
+            "persian_translation": "من صورت‌حساب را پرداخت می‌کنم."
+        },
+        "audio": {
+            "ipa": "/ˈʁɛçnʊŋ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "markt",
+            "article": "der",
+            "plural": "Märkte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Ort, wo man Lebensmittel kauft",
+            "persian_translation": "بازار"
+        },
+        "example": {
+            "german_sentence": "Der Markt ist am Samstag.",
+            "persian_translation": "بازار روز شنبه است."
+        },
+        "audio": {
+            "ipa": "/maʁkt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "supermarkt",
+            "article": "der",
+            "plural": "Supermärkte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein großes Geschäft für Lebensmittel",
+            "persian_translation": "سوپرمارکت"
+        },
+        "example": {
+            "german_sentence": "Der Supermarkt ist nah.",
+            "persian_translation": "سوپرمارکت نزدیک است."
+        },
+        "audio": {
+            "ipa": "/ˈzuːpɐˌmaʁkt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kasse",
+            "article": "die",
+            "plural": "Kassen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "der Ort im Geschäft, wo man bezahlt",
+            "persian_translation": "صندوق"
+        },
+        "example": {
+            "german_sentence": "Ich stehe an der Kasse.",
+            "persian_translation": "من جلوی صندوق ایستاده‌ام."
+        },
+        "audio": {
+            "ipa": "/ˈkasə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "angebot",
+            "article": "das",
+            "plural": "Angebote",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "eine Ware zu einem billigen Preis",
+            "persian_translation": "پیشنهاد (ویژه)"
+        },
+        "example": {
+            "german_sentence": "Das Angebot ist sehr gut.",
+            "persian_translation": "این پیشنهاد خیلی خوب است."
+        },
+        "audio": {
+            "ipa": "/ˈanɡəboːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "laden",
+            "article": "der",
+            "plural": "Läden",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "ein Geschäft, wo man Dinge kauft",
+            "persian_translation": "مغازه"
+        },
+        "example": {
+            "german_sentence": "Der Laden ist sonntags zu.",
+            "persian_translation": "مغازه یکشنبه‌ها بسته است."
+        },
+        "audio": {
+            "ipa": "/ˈlaːdn̩ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kaufen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "etwas gegen Geld bekommen",
+            "persian_translation": "خریدن"
+        },
+        "example": {
+            "german_sentence": "Ich kaufe einen Apfel.",
+            "persian_translation": "من یک سیب می‌خرم."
+        },
+        "audio": {
+            "ipa": "/ˈkaʊ̯fən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "verkaufen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "10"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "etwas gegen Geld geben",
+            "persian_translation": "فروختن"
+        },
+        "example": {
+            "german_sentence": "Er verkauft sein Auto.",
+            "persian_translation": "او خودروی خود را می‌فروشد."
+        },
+        "audio": {
+            "ipa": "/fɛɐ̯ˈkaʊ̯fən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

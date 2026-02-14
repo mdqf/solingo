@@ -1,0 +1,870 @@
+[
+    {
+        "word": {
+            "lemma": "familie",
+            "article": "die",
+            "plural": "Familien",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Gruppe von verwandten Personen",
+            "persian_translation": "خانواده"
+        },
+        "example": {
+            "german_sentence": "Meine Familie ist groß.",
+            "persian_translation": "خانواده من بزرگ است."
+        },
+        "audio": {
+            "ipa": "/faˈmiːliə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "vater",
+            "article": "der",
+            "plural": "Väter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein männliches Elternteil",
+            "persian_translation": "پدر"
+        },
+        "example": {
+            "german_sentence": "Mein Vater arbeitet hier.",
+            "persian_translation": "پدر من اینجا کار می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈfaːtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "mutter",
+            "article": "die",
+            "plural": "Mütter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein weibliches Elternteil",
+            "persian_translation": "مادر"
+        },
+        "example": {
+            "german_sentence": "Die Mutter kocht das Essen.",
+            "persian_translation": "مادر غذا می‌پزد."
+        },
+        "audio": {
+            "ipa": "/ˈmʊtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "eltern",
+            "article": "die",
+            "plural": "Eltern",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Vater und Mutter zusammen",
+            "persian_translation": "والدین"
+        },
+        "example": {
+            "german_sentence": "Meine Eltern wohnen in Berlin.",
+            "persian_translation": "والدین من در برلین زندگی می‌کنند."
+        },
+        "audio": {
+            "ipa": "/ˈɛltɐn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "bruder",
+            "article": "der",
+            "plural": "Brüder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein männliches Geschwisterteil",
+            "persian_translation": "برادر"
+        },
+        "example": {
+            "german_sentence": "Hast du einen Bruder?",
+            "persian_translation": "آیا برادر داری؟"
+        },
+        "audio": {
+            "ipa": "/ˈbruːdɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "schwester",
+            "article": "die",
+            "plural": "Schwestern",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein weibliches Geschwisterteil",
+            "persian_translation": "خواهر"
+        },
+        "example": {
+            "german_sentence": "Das ist meine Schwester.",
+            "persian_translation": "این خواهر من است."
+        },
+        "audio": {
+            "ipa": "/ˈʃvɛstɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "geschwister",
+            "article": "die",
+            "plural": "Geschwister",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Brüder und Schwestern",
+            "persian_translation": "خواهر و برادر"
+        },
+        "example": {
+            "german_sentence": "Wir sind drei Geschwister.",
+            "persian_translation": "ما سه خواهر و برادر هستیم."
+        },
+        "audio": {
+            "ipa": "/ˌɡəˈʃvɪstɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "großmutter",
+            "article": "die",
+            "plural": "Großmütter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Mutter des Vaters oder der Mutter",
+            "persian_translation": "مادربزرگ"
+        },
+        "example": {
+            "german_sentence": "Die Großmutter liest ein Buch.",
+            "persian_translation": "مادربزرگ یک کتاب می‌خواند."
+        },
+        "audio": {
+            "ipa": "/ɡʁoːs ˈmʊtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "oma",
+            "article": "die",
+            "plural": "Omas",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Kurzform für Großmutter",
+            "persian_translation": "مامان‌بزرگ"
+        },
+        "example": {
+            "german_sentence": "Meine Oma ist nett.",
+            "persian_translation": "مامان‌بزرگ من مهربان است."
+        },
+        "audio": {
+            "ipa": "/ˈoːma /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "großvater",
+            "article": "der",
+            "plural": "Großväter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Vater der Mutter oder des Vaters",
+            "persian_translation": "پدربزرگ"
+        },
+        "example": {
+            "german_sentence": "Mein Großvater kommt heute.",
+            "persian_translation": "پدربزرگ من امروز می‌آید."
+        },
+        "audio": {
+            "ipa": "/ˈgʁoːsfatɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "opa",
+            "article": "der",
+            "plural": "Opas",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Kurzform für Großvater",
+            "persian_translation": "بابابزرگ"
+        },
+        "example": {
+            "german_sentence": "Der Opa spielt im Garten.",
+            "persian_translation": "بابابزرگ در باغ بازی می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈoːpa /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "großeltern",
+            "article": "die",
+            "plural": "Großeltern",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Großvater und Großmutter zusammen",
+            "persian_translation": "پدربزرگ و مادربزرگ"
+        },
+        "example": {
+            "german_sentence": "Meine Großeltern sind alt.",
+            "persian_translation": "پدربزرگ و مادربزرگ من پیر هستند."
+        },
+        "audio": {
+            "ipa": "/ɡroːs ɛltɐn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "sohn",
+            "article": "der",
+            "plural": "Söhne",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein männliches Kind",
+            "persian_translation": "(فرزند) پسر"
+        },
+        "example": {
+            "german_sentence": "Er hat einen Sohn.",
+            "persian_translation": "او یک پسر دارد."
+        },
+        "audio": {
+            "ipa": "/zoːn /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "tochter",
+            "article": "die",
+            "plural": "Töchter",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein weibliches Kind",
+            "persian_translation": "(فرزند) دختر"
+        },
+        "example": {
+            "german_sentence": "Meine Tochter geht zur Schule.",
+            "persian_translation": "دختر من به مدرسه می‌رود."
+        },
+        "audio": {
+            "ipa": "/ˈtɔxtɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kind",
+            "article": "das",
+            "plural": "Kinder",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein junger Mensch",
+            "persian_translation": "بچه"
+        },
+        "example": {
+            "german_sentence": "Das Kind lacht.",
+            "persian_translation": "بچه می‌خندد."
+        },
+        "audio": {
+            "ipa": "/kɪnt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "baby",
+            "article": "das",
+            "plural": "Babys",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein sehr kleines Kind",
+            "persian_translation": "نوزاد"
+        },
+        "example": {
+            "german_sentence": "Das Baby schläft.",
+            "persian_translation": "نوزاد خوابیده است."
+        },
+        "audio": {
+            "ipa": "/ˈbeːbi /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ehefrau",
+            "article": "die",
+            "plural": "Ehefrauen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die verheiratete Frau",
+            "persian_translation": "همسر (زن)"
+        },
+        "example": {
+            "german_sentence": "Seine Ehefrau heißt Maria.",
+            "persian_translation": "همسر او ماریا نام دارد."
+        },
+        "audio": {
+            "ipa": "/ˈeːəˌfʀaʊ̯ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ehemann",
+            "article": "der",
+            "plural": "Ehemänner",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der verheiratete Mann",
+            "persian_translation": "شوهر"
+        },
+        "example": {
+            "german_sentence": "Mein Ehemann ist Arzt.",
+            "persian_translation": "شوهر من پزشک است."
+        },
+        "audio": {
+            "ipa": "/ˈeːəman /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "freund",
+            "article": "der",
+            "plural": "Freunde",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine männliche Person, die man mag",
+            "persian_translation": "دوست"
+        },
+        "example": {
+            "german_sentence": "Er ist mein bester Freund.",
+            "persian_translation": "او بهترین دوست من است."
+        },
+        "audio": {
+            "ipa": "/fʁɔʏnt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "junge",
+            "article": "der",
+            "plural": "Jungen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein männliches Kind oder Jugendlicher",
+            "persian_translation": "پسر"
+        },
+        "example": {
+            "german_sentence": "Der Junge spielt Fußball.",
+            "persian_translation": "آن پسر فوتبال بازی می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈjʊŋə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "partner",
+            "article": "der",
+            "plural": "Partner",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Lebensgefährte",
+            "persian_translation": "شریک زندگی"
+        },
+        "example": {
+            "german_sentence": "Das ist mein Partner.",
+            "persian_translation": "این شریک زندگی من است."
+        },
+        "audio": {
+            "ipa": "/ˈpaʁtnɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "familienstand",
+            "article": "der",
+            "plural": "null",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der rechtliche Status einer Person (z.B. ledig)",
+            "persian_translation": "وضعیت تأهل"
+        },
+        "example": {
+            "german_sentence": "Wie ist Ihr Familienstand?",
+            "persian_translation": "وضعیت تأهل شما چیست؟"
+        },
+        "audio": {
+            "ipa": "/faˈmiːliənʃtant /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "frau",
+            "article": "die",
+            "plural": "Frauen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine erwachsene weibliche Person",
+            "persian_translation": "زن"
+        },
+        "example": {
+            "german_sentence": "Die Frau kauft Äpfel.",
+            "persian_translation": "آن زن سیب می‌خرد."
+        },
+        "audio": {
+            "ipa": "/fʁaʊ̯ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "herr",
+            "article": "der",
+            "plural": "Herren",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine erwachsene männliche Person",
+            "persian_translation": "آقا"
+        },
+        "example": {
+            "german_sentence": "Guten Tag, Herr Müller.",
+            "persian_translation": "روز بخیر، آقای مولر."
+        },
+        "audio": {
+            "ipa": "/hɛʁ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "leute",
+            "article": "die",
+            "plural": "Leute",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Mehrere Personen",
+            "persian_translation": "مردم"
+        },
+        "example": {
+            "german_sentence": "Hier sind viele Leute.",
+            "persian_translation": "اینجا مردم زیادی هستند."
+        },
+        "audio": {
+            "ipa": "/ˈlɔʏ̯tə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "mensch",
+            "article": "der",
+            "plural": "Menschen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Individuum",
+            "persian_translation": "انسان"
+        },
+        "example": {
+            "german_sentence": "Jeder Mensch ist anders.",
+            "persian_translation": "هر انسانی متفاوت است."
+        },
+        "audio": {
+            "ipa": "/mɛnʃ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kennen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Wissen über eine Person oder Sache haben",
+            "persian_translation": "شناختن"
+        },
+        "example": {
+            "german_sentence": "Ich kenne Berlin gut.",
+            "persian_translation": "من برلین را خوب می‌شناسم."
+        },
+        "audio": {
+            "ipa": "/ˈkɛnən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "kennenlernen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "4"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Mit jemandem zum ersten Mal Kontakt haben",
+            "persian_translation": "آشنا شدن"
+        },
+        "example": {
+            "german_sentence": "Ich lerne heute neue Leute kennen.",
+            "persian_translation": "من امروز با افراد جدیدی آشنا می‌شوم."
+        },
+        "audio": {
+            "ipa": "/ˈkɛnən ˌlɛʁnən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

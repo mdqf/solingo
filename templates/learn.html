@@ -1,0 +1,1111 @@
+{% extends "base.html" %}
+
+{% block title %}سولینگو - تمرین درس: {{ lesson_id }}{% endblock %}
+
+{% block styles %}
+<style>
+    /* استایل‌های صفحه کوئیز */
+    .quiz-page {
+        display: flex;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 40px 20px;
+        font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        flex-direction: column;
+    }
+
+    body.light-mode .quiz-page {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .quiz-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+    }
+
+    /* هدر کوئیز */
+    .quiz__page_header {
+        display: flex;
+        gap: 10px;
+    }
+
+    a.quiz__btn {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+    .lesson-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        padding: 12px 24px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+
+    body.light-mode .lesson-badge {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .lesson-icon {
+        font-size: 24px;
+    }
+
+    .lesson-id {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-color);
+        background: linear-gradient(135deg, #FEB885, #ff9e5c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* نوار پیشرفت */
+    .progress-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .progress-track {
+        height: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 100px;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    body.light-mode .progress-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #FEB885, #ff9e5c);
+        border-radius: 100px;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .progress-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent);
+        animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .progress-text {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    body.light-mode .progress-text {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* کارت اصلی کوئیز */
+    .quiz-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 32px;
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.6s ease-out;
+        flex: 1;
+    }
+
+    body.light-mode .quiz-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .quiz-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .quiz__main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .quiz__header {
+        margin-top: 20px;
+        text-align: right;
+        font-size: 16pt;
+        font-weight: bold;
+    }
+
+    /* حالت لودینگ */
+    .loading-state {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+    }
+
+    .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(254, 184, 133, 0.2);
+        border-top-color: #FEB885;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading-text {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+    }
+
+    body.light-mode .loading-text {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* حالت آموزش (Presentation)
+    .garden-icon {
+        font-size: 64px;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+    } */
+
+    .quiz__icon {
+        font-size: 64px;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .badge {
+        width: fit-content;
+        display: flex;
+        gap: 5px;
+        padding: 8px 16px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .bg-primary {
+        background: linear-gradient(135deg, #4e73df, #224abe);
+        color: white;
+    }
+
+    .bg-warning {
+        background: linear-gradient(135deg, #ffc107, #ff9800);
+        color: #212529;
+    }
+
+    .german-text {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        color: #fff;
+        margin: 20px 0;
+        line-height: 1.2;
+    }
+
+    body.light-mode .german-text {
+        color: #212529;
+    }
+
+    /* دکمه اسپیکر */
+    .speaker-btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .speaker-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(254, 184, 133, 0.2), rgba(255, 158, 92, 0.2));
+        border: 2px solid #FEB885;
+        color: #FEB885;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+    }
+
+    .speaker-icon:hover {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #FEB885, #ff9e5c);
+        box-shadow: 0 0 30px rgba(254, 184, 133, 0.5);
+        color: #212329;
+    }
+
+    .quiz__btn_lg button {
+        width: 100px;
+        height: 100px;
+        font-size: 38px;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 0 0 rgba(254, 184, 133, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 0 0 15px rgba(254, 184, 133, 0);
+        }
+    }
+
+    /* متن ترجمه */
+    .h3.mb-4.text-success {
+        font-size: 28px;
+        color: #28a745 !important;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .h6.mb-4.text-muted {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6) !important;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    body.light-mode .h6.mb-4.text-muted {
+        color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* باکس مثال */
+    .alert {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 24px;
+        margin: 20px 0;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: left;
+        direction: ltr;
+    }
+
+    body.light-mode .alert {
+        background: rgba(0, 0, 0, 0.02);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.9);
+    }
+
+    .alert strong {
+        color: #FEB885;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .alert small {
+        color: rgba(255, 255, 255, 0.5);
+        display: block;
+        margin-top: 8px;
+    }
+
+    body.light-mode .alert small {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* دکمه اصلی */
+    .btn-success {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        border: none;
+        border-radius: 16px;
+        padding: 16px 24px;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-success::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-success:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+    }
+
+    .btn-success:hover::before {
+        left: 100%;
+    }
+
+    /* حالت کویز */
+    .options-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(372px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
+    }
+
+    .option-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 16px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    body.light-mode .option-btn {
+        background: rgba(0, 0, 0, 0.02);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        color: #212529;
+    }
+
+    .option-btn:hover {
+        background: rgba(254, 184, 133, 0.2);
+        border-color: #FEB885;
+        transform: translateY(-2px);
+    }
+
+    .option-btn:active {
+        transform: translateY(0);
+    }
+
+    /* دکمه‌های آرتیکل */
+    .btn-outline-dark {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 16px 32px;
+        font-size: 24px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    body.light-mode .btn-outline-dark {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        color: #212529;
+    }
+
+    .btn-outline-dark:hover {
+        background: rgba(254, 184, 133, 0.2);
+        border-color: #FEB885;
+        transform: translateY(-2px);
+    }
+
+    /* فیلد تایپ */
+    .form-control {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 16px 24px;
+        font-size: 20px;
+        color: #fff;
+        text-align: center;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    body.light-mode .form-control {
+        background: rgba(0, 0, 0, 0.02);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        color: #212529;
+    }
+
+    .form-control:focus {
+        border-color: #FEB885;
+        box-shadow: 0 0 0 4px rgba(254, 184, 133, 0.2);
+        outline: none;
+    }
+
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    body.light-mode .form-control::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* دکمه بررسی */
+    .btn-primary {
+        background: linear-gradient(135deg, #FEB885, #ff9e5c);
+        border: none;
+        border-radius: 16px;
+        padding: 16px 24px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #212329;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(254, 184, 133, 0.4);
+    }
+
+    /* حالت پاسخ */
+    .text-success {
+        color: #28a745 !important;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+
+    .quiz-content h2 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .quiz-content p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    body.light-mode .quiz-content p {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* رسپانسیو */
+    @media (max-width: 768px) {
+        .quiz-page {
+            padding: 20px 16px;
+        }
+
+        .quiz-card {
+            padding: 30px 20px;
+        }
+
+        .german-text {
+            font-size: 36px;
+        }
+
+        .options-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .btn-outline-dark {
+            padding: 14px 24px;
+            font-size: 20px;
+        }
+
+        .quiz-content h2 {
+            font-size: 28px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .quiz-card {
+            padding: 24px 16px;
+        }
+
+        .german-text {
+            font-size: 28px;
+        }
+
+        .lesson-badge {
+            padding: 10px 20px;
+        }
+
+        .lesson-icon {
+            font-size: 20px;
+        }
+
+        .lesson-id {
+            font-size: 16px;
+        }
+
+        .badge {
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+    }
+
+    /* انیمیشن‌های اضافه */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .quiz-card {
+        animation: fadeIn 0.6s ease-out, slideUp 0.6s ease-out;
+    }
+
+    .option-btn,
+    .btn-outline-dark {
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    /* استایل برای حالت‌های خاص */
+    .quiz-content .btn-lg {
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .d-flex.gap-2 {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .mt-3 {
+        margin-top: 20px;
+    }
+
+    .mb-4 {
+        margin-bottom: 30px;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-page">
+    <div class="quiz__page_header">
+        <a id="quiz__page_close" href="{{ url_for('lessons') }}" class="quiz__btn">
+            <i class="fa fa-times"></i>
+        </a>
+        <div class="progress-container">
+            <div class="progress-track">
+                <div id="session-progress" class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div id="session-level" class="progress-text"></div>
+        </div>
+    </div>
+    <div class="quiz-container">
+        <div id="question-container" class="quiz-content">
+            <div class="loading-state">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">در حال بارگذاری درس...</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let sessionWords = [];
+    let newWords = [];
+    let reviewedWords = [];
+    let lessonWords = [];
+    let currentIndex = 0;
+    const lessonId = "{{ lesson_id }}";
+    let specialData = {{ special_data| safe if special_data else 'null' }};
+
+    // ۱. صوت هوشمند (پخش آرتیکل فقط در صورت نیاز)
+    function speak(text, withArticle = false, item = null) {
+        window.speechSynthesis.cancel();
+        let speechText = text;
+        if (withArticle && item && item.word.article) {
+            speechText = `${item.word.article} ${text}`;
+        }
+        const utterance = new SpeechSynthesisUtterance(speechText);
+        utterance.lang = "de-DE";
+        utterance.rate = 0.8;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // ۲. بارگذاری داده‌ها
+    async function loadSession() {
+        try {
+            if (specialData) {
+                sessionWords = specialData;
+                showStep();
+                return;
+            }
+            const response = await fetch(`/api/get_session/${lessonId}`);
+            lessonWords = await response.json();
+            for (i in lessonWords) {
+                if (lessonWords[i].learning_level === 0) {
+                    newWords.push(lessonWords[i]);
+                } else {
+                    reviewedWords.push(lessonWords[i]);
+                }
+            }
+            if (newWords.length > 3) {
+                newWords = newWords.slice(0, 3);
+            }
+            if (reviewedWords.length > 7) {
+                reviewedWords = reviewedWords.slice(0, 5);
+            }
+            sessionWords = [...newWords, ...reviewedWords];
+            sessionWords = sessionWords.sort(() => Math.random() - 0.5);
+
+            const newString = [];
+            for (i in sessionWords) {
+                newString.push(sessionWords[i].word.lemma);
+            }
+            console.log(newString);
+            if (sessionWords.length === 0) {
+                document.getElementById("question-container").innerHTML = "کلمه‌ای در این درس پیدا نشد.";
+                return;
+            }
+            showStep();
+        } catch (e) {
+            console.error("خطا در بارگذاری:", e);
+        }
+    }
+
+    // ۳. نمایش مرحله فعلی (آموزش یا آزمون)
+    function showStep(isImmediateReview = false) {
+        if (currentIndex >= sessionWords.length) {
+            renderSummary();
+            return;
+        }
+
+        const item = sessionWords[currentIndex];
+
+        // اگر کلمه جدید است، یا همین الان غلط بوده، یا قبلاً تیک نیاز به مرور خورده
+        if (!item.learning_level || item.learning_level === 0 || isImmediateReview || item.needsReview) {
+
+            renderPresentation(item, isImmediateReview);
+
+            // حالا که نمایش داده شد، تیک را برداریم تا در حرکت بعدی از کاربر کویز گرفته شود
+            if (item.needsReview) {
+                item.needsReview = false;
+            }
+
+        } else {
+            renderQuiz(item);
+        }
+        updateProgressBar();
+    }
+
+    // ۴. حالت آموزش (Presentation)
+    function renderPresentation(item, w) {
+        const container = document.getElementById("question-container");
+        speak(item.word.lemma, true, item);
+
+        // تعیین عنوان پیام
+        let badgeText = "کلمه جدید";
+        let badgeClass = "bg-primary";
+
+        if (w || item.needsReview) {
+            badgeText = "یادآوری مجدد کلمه";
+            badgeClass = "bg-warning text-dark"; // رنگ نارنجی برای هشدار/یادآوری
+        }
+        container.innerHTML = `
+                <div class="quiz__main">
+                    <div class="german-text">
+                        <strong><span style="color: #666; font-size: 1.5rem;">${item.word.article || ""}</span> ${item.word.lemma}</strong>
+                        <div class="speaker-btn">
+                            <button onclick="speak('${item.word.article !== null ? item.word.article + " " + item.word.lemma : item.word.lemma}')" aria-label="Audio" title="Audio" data-testid="audioPlayer" class="speaker-icon" tabindex="0" style="transform: none;">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="badge ${badgeClass} mb-2">
+                        <span class="garden-icon">${(w || item.needsReview) ? '🔄' : '🌱'}</span>
+                        ${badgeText}
+                    </span>
+                    <div class="h3 mb-4 text-success">${item.meaning.persian_translation}</div>
+                    <div class="h6 mb-4 text-muted">${item.meaning.german_definition}</div>
+                </div>
+                <div class="quiz__footer">
+                    <div class="alert alert-light text-start border" dir="ltr">
+                        <strong>Beispiel:</strong>${item.example.german_sentence}
+                        <small class="text-muted">${item.example.persian_translation}</small>
+                    </div>
+                    <button onclick="handleLearned()" class="btn btn-success btn-lg w-100">یاد گرفتم</button>
+                </div>
+            `;
+    }
+
+    // ۵. حالت کویز (Quiz)
+    function renderQuiz(item) {
+        const container = document.getElementById("question-container");
+        let weights = [];
+
+        // منطق هوشمند: اگر امتیاز مهارتی کم است، احتمال انتخاب آن سوال بیشتر شود
+        if ((item.score_stats?.reading || 0) < 2) weights.push("mcq");
+        if ((item.score_stats?.writing || 0) < 2) weights.push("typing");
+        if ((item.score_stats?.listening || 0) < 2) weights.push("listening-typing");
+        if (item.word.part_of_speech === "noun" && (item.score_stats?.article || 0) < 2) weights.push("article");
+
+        // اگر همه مهارت‌ها را بلد بود، تصادفی انتخاب کن
+        if (weights.length === 0) weights = ["mcq", "typing", "listening-typing"];
+
+        const selectedType = weights[Math.floor(Math.random() * weights.length)];
+        item.currentQuestionType = selectedType;
+
+        if (selectedType === 'mcq') {
+            speak(item.word.lemma);
+            const options = generateOptions(item, sessionWords);
+            container.innerHTML = `
+                <div class="quiz__header">
+                    <span>معنی صحیح کلمه چیست؟</span>
+                </div>
+                <div class="quiz__main">
+                    <div class="german-text">${item.word.lemma}</div>
+                </div>
+                <div class="quiz__footer">
+                    <div class="options-grid">
+                        ${options.map(opt => `<button onclick="validateAnswer('${opt}', '${item.meaning.persian_translation}')" class="option-btn">${opt}</button>`).join('')}
+                    </div>
+                </div>
+                `;
+        }
+        else if (selectedType === 'article') {
+            speak(item.word.lemma);
+            const articles = ['der', 'die', 'das'];
+            container.innerHTML = `
+                <div class="quiz__header">
+                    <span>آرتیکل صحیح کدام است؟</span>
+                </div>
+                <div class="quiz__main">
+                    <div class="german-text">${item.word.lemma}</div>
+                </div>
+                <div class="quiz__footer">
+                    <div class="d-flex justify-content-center gap-2 mt-4">
+                        ${articles.map(a => `<button onclick="validateAnswer('${a}', '${item.word.article}')" class="btn btn-outline-dark btn-lg px-4">${a}</button>`).join('')}
+                    </div>
+                </div>
+                `;
+        }
+        else if (selectedType === 'typing') {
+            container.innerHTML = `
+                <div class="quiz__header">
+                    <span>این کلمه را تایپ کنید:</span>
+                </div>
+                <div class="quiz__main">
+                    <div class="h3 text-success mb-4">${item.meaning.persian_translation}</div>
+                </div>
+                <div class="quiz__footer">
+                    <input type="text" id="user-input" class="form-control form-control-lg text-center"
+                        placeholder="${item.meaning.german_definition}" autocomplete="off" dir="ltr">
+                    <button onclick="checkTyping()" class="btn btn-primary mt-3 w-100">بررسی</button>
+                </div>
+                `;
+            const input = document.getElementById("user-input");
+            input.focus();
+            input.onkeypress = (e) => { if (e.key === 'Enter') checkTyping(); };
+        }
+        else if (selectedType === 'listening-typing') {
+            speak(item.word.lemma);
+            container.innerHTML = `
+                <div class="quiz__header">
+                    <span>کلمه‌ای که می‌شنوید را تایپ کنید:</span>
+                </div>
+                <div class="quiz__main">
+                    <div class="speaker-btn quiz__btn_lg">
+                        <button onclick="speak('${item.word.lemma}')" aria-label="Audio" title="Audio" data-testid="audioPlayer" class="speaker-icon" tabindex="0" style="transform: none;">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="quiz__footer">
+                    <input type="text" id="user-input" class="form-control form-control-lg text-center" 
+                        placeholder="${item.meaning.german_definition}" autocomplete="off" dir="ltr">
+                    <button onclick="checkTyping()" class="btn btn-primary mt-3 w-100">بررسی</button>
+                </div>
+                `;
+            const input = document.getElementById("user-input");
+            input.focus();
+            input.onkeypress = (e) => { if (e.key === 'Enter') checkTyping(); };
+        }
+    }
+
+    // ۶. بررسی پاسخ و فیدبک (توقف در مرحله)
+    function checkTyping() {
+        const val = document.getElementById("user-input").value.trim().toLowerCase();
+        const correct = sessionWords[currentIndex].word.lemma.toLowerCase();
+        validateAnswer(val, correct);
+    }
+
+    async function validateAnswer(userAns, correctAnswer) {
+        const container = document.getElementById("question-container");
+        const item = sessionWords[currentIndex];
+        const isCorrect = userAns.toLowerCase() === correctAnswer.toLowerCase();
+
+        await fetch("/api/update_score", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                lemma: item.word.lemma,
+                question_type: item.currentQuestionType,
+                correct: isCorrect
+            })
+        });
+
+        speak(item.word.lemma, true, item); // صوت دوم (همیشه با آرتیکل بعد از پاسخ)
+
+        if (isCorrect) {
+            container.innerHTML = `
+                <div class="quiz__main">
+                    <div class="quiz__icon">✅</div>
+                    <h2 class="text-success">آفرین! درست بود.</h2>
+                    <div class="german-text" style="font-size: 1.8rem">${item.word.article || ""} ${item.word.lemma}</div>
+                    <p class="text-muted">سطح یادگیری: ${Math.min((item.learning_level || 0) + 1, 6)}/6</p>
+                </div>
+                <div class="quiz__footer">
+                    <button onclick="handleLearned()" class="btn btn-success btn-lg w-100 mt-3">بعدی</button>
+                </div>
+            `;
+            // در بخش else (پاسخ اشتباه):
+        } else {
+            container.innerHTML = `
+                <div class="quiz__main">
+                    <div class="quiz__icon">❌</div>
+                    <h2 class="text-danger">${userAns} اشتباه بود!</h2>
+                    <div class="mb-3">پاسخ صحیح:</div>
+                    <div class="german-text" style="font-size: 1.8rem; color: #d9534f;">${item.word.article || ""} ${item.word.lemma}</div>
+                    <div class="h4 mb-4">${item.meaning.persian_translation}</div>
+                </div>
+                <div class="quiz__footer">
+                    <button onclick="handleWrongAnswer()" class="btn btn-primary btn-lg w-100 mt-3">متوجه شدم</button>
+                </div>
+            `;
+        }
+    }
+
+    // تابع جدید برای وقتی کاربر روی "یاد گرفتم" کلیک می‌کند:
+    async function handleLearned() {
+        const item = sessionWords[currentIndex];
+        let moved = false;
+
+        if (item.learning_level === 0) {
+            item.learning_level = 1;
+            // جابجایی کلمه به یک خانه جلوتر برای تکرار در همین جلسه
+            if (currentIndex < sessionWords.length - 1) {
+                sessionWords.splice(currentIndex, 1);
+                sessionWords.splice(currentIndex + 1, 0, item);
+                moved = true; // علامت‌گذاری که جابجایی انجام شد
+            }
+        } else {
+            item.learning_level = Math.min((item.learning_level || 0) + 1, 6);
+        }
+
+        // ارسال به سرور
+        await fetch('/api/update_score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                lemma: item.word.lemma,
+                change: 1,
+                new_level: item.learning_level
+            })
+        });
+
+        // اگر کلمه جابجا شده باشد، ایندکس را زیاد نمیکنیم 
+        // چون کلمه بعدی خودبخود به ایندکس فعلی آمده است
+        if (!moved) {
+            currentIndex++;
+        }
+
+        showStep();
+    }
+
+    // ۷. توابع کمکی منطقی
+    async function updateLevelAndNext(change) {
+        const item = sessionWords[currentIndex];
+
+        // اگر کلمه جدید بود (سطح 0)، آن را به سطح 1 ارتقا دهید
+        if (item.learning_level === 0 || change === 1) {
+            item.learning_level = Math.min((item.learning_level || 0) + 1, 6);
+        }
+
+        await fetch('/api/update_score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ lemma: item.word.lemma, change: change })
+        });
+        currentIndex++;
+        showStep();
+    }
+
+    function handleWrongAnswer() {
+        const item = sessionWords[currentIndex];
+        let moved = false;
+
+        // علامت‌گذاری کلمه برای اینکه وقتی دوباره به آن رسیدیم، حالت آموزش نمایش داده شود
+        item.needsReview = true;
+
+        if (item.learning_level > 1) {
+            item.learning_level--;
+        }
+
+        // جابجایی کلمه به ۲ خانه جلوتر
+        if (currentIndex < sessionWords.length - 1) {
+            sessionWords.splice(currentIndex, 1);
+            const targetIndex = Math.min(currentIndex + 2, sessionWords.length);
+            sessionWords.splice(targetIndex, 0, item);
+            moved = true;
+        }
+
+        // اگر جابجا نشد (آخر لیست بود)، ایندکس را زیاد می‌کنیم
+        if (!moved) {
+            currentIndex++;
+        }
+
+        // در اینجا false می‌فرستیم چون نمی‌خواهیم کلمه بعدی (که زیر ایندکس آمده) 
+        // به اشتباه در حالت "آموزش مجدد" نمایش داده شود.
+        showStep(false);
+    }
+
+    function updateProgressBar() {
+        const percent = (currentIndex / sessionWords.length) * 100;
+        document.getElementById("session-progress").style.width = percent + "%";
+        document.getElementById("session-level").innerHTML = `مرحله: ${currentIndex}/${sessionWords.length}`;
+    }
+
+    function generateOptions(item, all) {
+        let opts = [item.meaning.persian_translation];
+        let others = all.filter(a => a.word.lemma !== item.word.lemma).map(a => a.meaning.persian_translation);
+        others = others.sort(() => 0.5 - Math.random()).slice(0, 3);
+        return opts.concat(others).sort(() => 0.5 - Math.random());
+    }
+
+    function renderSummary() {
+        document.getElementById("quiz__page_close").classList.add('d-none');
+        updateProgressBar();
+        completeLesson();
+        document.getElementById("question-container").innerHTML = `
+                <div class="quiz__main">
+                    <div class="quiz__icon">🌻</div>
+                    <h2 class="text-success">درس تمام شد!</h2>
+                    <p>شما تمام کلمات این جلسه را مرور کردید.</p>
+                </div>
+                <div class="quiz__footer">
+                    <a href="/level/${lessonId}" class="btn btn-primary btn-lg mt-3">بازگشت به لیست درس‌ها</a>
+                </div>
+            `;
+    }
+
+    async function completeLesson() {
+        try {
+            const response = await fetch('/api/finish_lesson', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                if (data.update_type === "streak_increased") {
+                    console.log("اولین تمرین امروز! استریک شد: " + data.streak);
+                    // نمایش افکت آتش یا تبریک مخصوص
+                } else {
+                    console.log("تمرین ثبت شد (استریک قبلاً امروز ثبت شده بود)");
+                }
+            }
+        } catch (err) {
+            console.error("خطا در ارتباط:", err);
+        }
+    }
+
+    loadSession();
+</script>
+{% endblock %}

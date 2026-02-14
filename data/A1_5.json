@@ -1,0 +1,622 @@
+[
+    {
+        "word": {
+            "lemma": "vorname",
+            "article": "der",
+            "plural": "Vornamen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Name, der vor dem Familiennamen steht",
+            "persian_translation": "نام کوچک"
+        },
+        "example": {
+            "german_sentence": "Mein Vorname ist Thomas.",
+            "persian_translation": "نام کوچک من توماس است."
+        },
+        "audio": {
+            "ipa": "/ˈfoːɐ̯ˌnaːmə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "familienname",
+            "article": "der",
+            "plural": "Familiennamen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Name einer Familie",
+            "persian_translation": "نام خانوادگی"
+        },
+        "example": {
+            "german_sentence": "Wie ist Ihr Familienname?",
+            "persian_translation": "نام خانوادگی شما چیست؟"
+        },
+        "audio": {
+            "ipa": "/faˈmiːliənaːmə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "name",
+            "article": "der",
+            "plural": "Namen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das Wort, mit dem man eine Person ruft",
+            "persian_translation": "نام"
+        },
+        "example": {
+            "german_sentence": "Der Name ist schön.",
+            "persian_translation": "این نام زیبا است."
+        },
+        "audio": {
+            "ipa": "/ˈnaːmə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "alter",
+            "article": "das",
+            "plural": "null",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Anzahl der Jahre, die man lebt",
+            "persian_translation": "سن"
+        },
+        "example": {
+            "german_sentence": "Nennen Sie bitte Ihr Alter.",
+            "persian_translation": "لطفاً سن خود را بگویید."
+        },
+        "audio": {
+            "ipa": "/ˈaltɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "anrede",
+            "article": "die",
+            "plural": "Anreden",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das Wort am Anfang von einem Brief",
+            "persian_translation": "خطاب"
+        },
+        "example": {
+            "german_sentence": "Die Anrede ist wichtig.",
+            "persian_translation": "خطاب مهم است."
+        },
+        "audio": {
+            "ipa": "/ˈanˌʀeːdə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "geburtsjahr",
+            "article": "das",
+            "plural": "Geburtsjahre",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das Jahr, in dem man geboren ist",
+            "persian_translation": "سال تولد"
+        },
+        "example": {
+            "german_sentence": "Mein Geburtsjahr ist 1990.",
+            "persian_translation": "سال تولد من ۱۹۹۰ است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈbuːɐts jaːɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "geburtsort",
+            "article": "der",
+            "plural": "Geburtsorte",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Stadt, in der man geboren ist",
+            "persian_translation": "محل تولد"
+        },
+        "example": {
+            "german_sentence": "Mein Geburtsort ist Teheran.",
+            "persian_translation": "محل تولد من تهران است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈbuːɐt ɔʁt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "geburtstag",
+            "article": "der",
+            "plural": "Geburtstage",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Tag, an dem man geboren ist",
+            "persian_translation": "زادروز"
+        },
+        "example": {
+            "german_sentence": "Heute ist mein Geburtstag.",
+            "persian_translation": "امروز روز تولد من است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈbuːɐ̯t͡sˌtaːk /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "heimat",
+            "article": "die",
+            "plural": "null",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Das Land oder der Ort, wo man herkommt",
+            "persian_translation": "وطن"
+        },
+        "example": {
+            "german_sentence": "Der Iran ist meine Heimat.",
+            "persian_translation": "ایران وطن من است."
+        },
+        "audio": {
+            "ipa": "/ˈhaɪ̯maːt /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "sprache",
+            "article": "die",
+            "plural": "Sprachen",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Die Wörter, die man in einem Land spricht",
+            "persian_translation": "زبان"
+        },
+        "example": {
+            "german_sentence": "Ich lerne die deutsche Sprache.",
+            "persian_translation": "من زبان آلمانی را یاد می‌گیرم."
+        },
+        "audio": {
+            "ipa": "/ˈʃpʁaːxə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ausweis",
+            "article": "der",
+            "plural": "Ausweise",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein Dokument mit einem Foto",
+            "persian_translation": "کارت شناسایی"
+        },
+        "example": {
+            "german_sentence": "Hier ist mein Ausweis.",
+            "persian_translation": "کارت شناسایی من اینجا است."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯svaɪ̯s /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "pass",
+            "article": "der",
+            "plural": "Pässe",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Ein offizielles Reisedokument",
+            "persian_translation": "پاسپورت"
+        },
+        "example": {
+            "german_sentence": "Der Pass liegt auf dem Tisch.",
+            "persian_translation": "پاسپورت روی میز است."
+        },
+        "audio": {
+            "ipa": "/pas /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "konto",
+            "article": "das",
+            "plural": "Konten",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Der Platz für Geld bei einer Bank",
+            "persian_translation": "حساب بانکی"
+        },
+        "example": {
+            "german_sentence": "Ich habe ein Konto.",
+            "persian_translation": "من یک حساب دارم."
+        },
+        "audio": {
+            "ipa": "/ˈkɔnto /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "geboren",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "adjective",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Durch eine Geburt zur Welt gekommen",
+            "persian_translation": "متولد"
+        },
+        "example": {
+            "german_sentence": "Ich bin in Berlin geboren.",
+            "persian_translation": "من در برلین متولد شده‌ام."
+        },
+        "audio": {
+            "ipa": "/ɡəˈboːrən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "gestorben",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "adjective",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Nicht mehr lebend",
+            "persian_translation": "مرده"
+        },
+        "example": {
+            "german_sentence": "Mein Hund ist leider gestorben.",
+            "persian_translation": "سگ من متأسفانه مرده است."
+        },
+        "audio": {
+            "ipa": "/ɡəˈʃtɔʁbən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "heiraten",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Ehe eingehen",
+            "persian_translation": "ازدواج کردن"
+        },
+        "example": {
+            "german_sentence": "Meine Freunde heiraten heute.",
+            "persian_translation": "دوستان من امروز ازدواج می‌کنند."
+        },
+        "audio": {
+            "ipa": "/ˈhaɪ̯raːtən /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "heißen",
+            "article": null,
+            "plural": null,
+            "language": "de",
+            "part_of_speech": "verb",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Einen Namen haben",
+            "persian_translation": "نام داشتن"
+        },
+        "example": {
+            "german_sentence": "Ich heiße Peter.",
+            "persian_translation": "نام من پیتر است."
+        },
+        "audio": {
+            "ipa": "/ˈhaɪ̯sn̩ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "papiere",
+            "article": "die",
+            "plural": "Papiere",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Wichtige Dokumente",
+            "persian_translation": "مدارک"
+        },
+        "example": {
+            "german_sentence": "Haben Sie alle Papiere?",
+            "persian_translation": "آیا همه مدارک را دارید؟"
+        },
+        "audio": {
+            "ipa": "/paˈpiːʀə /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ausland",
+            "article": "das",
+            "plural": "null",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Alle Länder außer dem eigenen",
+            "persian_translation": "کشور خارجی"
+        },
+        "example": {
+            "german_sentence": "Er arbeitet im Ausland.",
+            "persian_translation": "او در خارج از کشور کار می‌کند."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯sˌland /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    },
+    {
+        "word": {
+            "lemma": "ausländer",
+            "article": "der",
+            "plural": "Ausländer",
+            "language": "de",
+            "part_of_speech": "noun",
+            "level": "A1",
+            "Lesson": "5"
+        },
+        "meaning": {
+            "sense_index": 1,
+            "german_definition": "Eine Person aus einem anderen Land",
+            "persian_translation": "فرد خارجی"
+        },
+        "example": {
+            "german_sentence": "Er ist ein Ausländer.",
+            "persian_translation": "او یک خارجی است."
+        },
+        "audio": {
+            "ipa": "/ˈaʊ̯sˌlɛndɐ /"
+        },
+        "learning_items": [
+            {
+                "item_type": "recognition"
+            },
+            {
+                "item_type": "typing"
+            }
+        ]
+    }
+]

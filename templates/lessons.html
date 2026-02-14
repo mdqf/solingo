@@ -1,0 +1,713 @@
+{% extends "base.html" %}
+
+{% block title %}سولینگو - یادگیری زبان بصورت هوشمند{% endblock %}
+
+{% block content %}
+<style>
+    /* استایل کلی صفحه */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .page-title {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 30px;
+        color: var(--primary-color);
+    }
+
+    body.light-mode .page-title {
+        color: var(--primary-color);
+    }
+
+    /* کانتینر پیشرفت دوره */
+    .course-progress-container {
+        background: var(--dark-bg);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .course-progress-container {
+        background: var(--light-card);
+        border: 1px solid var(--light-border);
+    }
+
+    /* باکس پیشرفت */
+    .progress-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .progress-box-course {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .progress-box-course {
+        border-bottom: 1px solid var(--light-border);
+    }
+
+    .infos {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .progress-box-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--text-light);
+    }
+
+    body.light-mode .progress-box-title {
+        color: var(--light-text-secondary);
+    }
+
+    .pull-right {
+        margin-right: auto;
+        margin-left: 15px;
+    }
+
+    /* نوار پیشرفت */
+    .progress {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    body.light-mode .progress {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .bar {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    .bar-success {
+        background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    }
+
+    .bar-abs {
+        z-index: 1;
+    }
+
+    /* دکمه‌های عملیات */
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .actions-left,
+    .actions-right {
+        display: flex;
+        align-items: center;
+    }
+
+    /* استایل دکمه‌ها */
+    .btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-light-blue {
+        background: linear-gradient(75deg, var(--primary-light) 0%, var(--primary-medium) 100%);
+        color: var(--primary-color);
+    }
+
+    .btn-light-blue:hover {
+        background: var(--primary-color);
+        color: var(--dark-bg);
+    }
+
+    body.light-mode .btn-light-blue:hover {
+        color: #fff;
+    }
+
+    .btn-group {
+        position: relative;
+        display: inline-flex;
+    }
+
+    /* دراپ‌داون */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 1000;
+        display: none;
+        min-width: 200px;
+        padding: 8px 0;
+        margin: 4px 0 0;
+        background: var(--dark-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    body.light-mode .dropdown-menu {
+        background: var(--light-card);
+        border: 1px solid var(--light-border);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        padding: 10px 16px;
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        gap: 10px;
+    }
+
+    body.light-mode .dropdown-menu a {
+        color: var(--light-text);
+    }
+
+    .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    body.light-mode .dropdown-menu a:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .text-danger {
+        color: #ff4757 !important;
+    }
+
+    /* لیست درس‌ها */
+    .levels {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .level {
+        background: var(--dark-bg);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: var(--text-light);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    body.light-mode .level {
+        background: var(--light-card);
+        border: 2px solid var(--light-border);
+        color: var(--light-text);
+    }
+
+    .level:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary-color);
+        box-shadow: 0 8px 24px rgba(254, 184, 133, 0.2);
+    }
+
+    .level-index {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        min-width: 40px;
+    }
+
+    .level-icon {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .level-ico {
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+
+    .level-ico-s {
+        font-size: 20px;
+    }
+
+    .level-ico-seed {
+        color: #4CAF50;
+    }
+
+    .level-status {
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 10px;
+        color: var(--text-light);
+    }
+
+    body.light-mode .level-status {
+        color: var(--light-text-secondary);
+    }
+
+    .status-text {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 10px;
+    }
+
+    body.light-mode .status-text {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .level-title {
+        flex: 1;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    /* آیکون‌ها */
+    .ico {
+        font-size: 14px;
+    }
+
+    .small .ico {
+        font-size: 12px;
+    }
+
+    /* رسپانسیو */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        .progress-box {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .actions {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .levels {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .levels {
+            grid-template-columns: 1fr;
+        }
+
+        .progress-box-title {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pull-right {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+</style>
+
+<div class="container">
+    <h1 class="page-title" id="pageTitle">{{ page_title }}</h1>
+    <div class="course-progress-container">
+        <!-- بخش وضعیت کلی -->
+        <div class="progress-box progress-box-course">
+            <div class="infos">
+                <div class="progress-box-title">
+                    <span id="total-stats">
+                        <span id="learned-words">0</span> / <span id="total-words">0</span> کلمه یاد گرفته شده
+                        (<span id="long-term-words">0</span> در حافظه بلندمدت)
+                    </span>
+                    <span class="pull-right">
+                        <span id="ignored-words">0</span> نادیده گرفته شده
+                    </span>
+                </div>
+                <div class="progress" data-placement="bottom" title="0%">
+                    <div id="overall-progress" class="bar-success bar-abs bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="actions actions-left">
+                <div class="btn-group">
+                    <button class="btn btn-secondary small dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="ico fas fa-chevron-down"></span>
+                        <span class="text">گزینه‌ها</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" data-role="course-restart">
+                                <span class="ico fas fa-redo"></span>
+                                شروع مجدد
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-role="course-unenroll" class="text-danger">
+                                <i class="ico fas fa-stop"></i>
+                                ترک دوره
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="actions actions-right">
+                <a href="#" class="btn btn-light-blue" tabindex="1" data-tracking-name="course_mode" title="مرور سریع">
+                    <span class="ico fas fa-clock"></span>
+                </a>
+                <a href="#" class="btn btn-light-blue" tabindex="1" data-tracking-name="course_mode"
+                    title="مرور کلمات یاد گرفته شده">
+                    <span class="text">
+                        مرور (<span id="review-count">0</span>)
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- لیست درس‌ها -->
+        <div class="levels clearfix" id="lessons-container" dir="ltr">
+            {% for item in lessons %}
+            <div class="lektion-card level" data-lesson-id="{{ item.id }}">
+                <div class="top-progress-container">
+                    <div class="top-progress-bg">
+                        <div class="top-progress-fill" id="fill-{{ item.id }}"></div>
+                    </div>
+                    <span class="small" id="count-{{ item.id }}">0/0</span>
+                </div>
+
+                <div class="lektion-title">
+                    Lektion: {{ item.lesson_number }}
+                    <span class="level-badge">{{ item.level }}</span>
+                </div>
+                <div class="lektion-card-bottom d-flex">
+                    <div class="percentage-box" id="percent-box-{{ item.id }}">
+                        Lernprozentsatz: <span id="percent-{{ item.id }}">0</span>%
+                        <i class="d-none" id="check-{{ item.id }}">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="white" />
+                                <path d="M7.53553 9.94975L6.82843 10.6569L4 7.82843L4.70711 7.12132L7.53553 9.94975Z"
+                                    fill="#0C9300" />
+                                <path d="M6.82843 10.6569L6.12132 9.94975L11.0711 5L11.7782 5.70711L6.82843 10.6569Z"
+                                    fill="#0C9300" />
+                            </svg></i>
+                    </div>
+                    <a href="{{ url_for('level', lesson_id=item.id) }}" class="arrow-btn">
+                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.0421 7.99059C14.9643 7.9111 14.9196 7.86315 14.8721 7.81647C13.2173 6.23046 11.5625 4.64571 9.90772 3.06096C9.54409 2.71146 9.44 2.30013 9.61523 1.90268C9.88664 1.28948 10.6877 1.0876 11.2318 1.50271C11.4018 1.63267 11.552 1.78787 11.7061 1.93549C13.6323 3.77889 15.5585 5.62356 17.4834 7.46823C17.7535 7.72688 18.021 7.99059 18.2819 8.25808C18.7707 8.76025 18.7627 9.30154 18.2608 9.78352C16.3095 11.6547 14.3557 13.5246 12.4031 15.3957C12.075 15.7112 11.7443 16.0241 11.4176 16.3408C11.1449 16.6045 10.8247 16.7534 10.4308 16.7029C10.0263 16.6512 9.74962 16.4316 9.60601 16.0695C9.46635 15.715 9.54936 15.3907 9.78783 15.0992C9.84448 15.0298 9.91167 14.9668 9.97755 14.9037C11.631 13.3177 13.2845 11.7304 14.9393 10.1444C14.9696 10.1154 15.0012 10.0876 15.0684 10.027C14.9604 10.0144 14.8866 10.0005 14.8115 9.99928C14.5217 9.99802 14.2318 10.0018 13.942 10.0018C5.65082 10.0018 9.52696 10.0018 1.23715 10.0043C0.911719 10.0043 0.60342 9.96773 0.354409 9.74188C0.0408403 9.45673 -0.0737836 9.11227 0.0513806 8.71356C0.180497 8.30476 0.476938 8.06629 0.922259 8.01077C1.04611 7.99563 1.17259 7.98932 1.29775 7.98932C9.79573 7.98932 6.12777 7.98932 14.6257 7.98933C14.7483 7.98933 14.8721 7.98933 15.0421 7.98933L15.0421 7.99059Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .lektion-card {
+        background: #121212;
+        border-radius: 20px;
+        padding: 20px;
+        color: white;
+        position: relative;
+        border: 1px solid #333;
+        flex-direction: column;
+    }
+
+    .lektion-card-bottom {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .top-progress-container {
+        width: 100%;
+        display: flex;
+        border-radius: 8px;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .top-progress-bg {
+        flex-grow: 1;
+        height: 12px;
+        padding: 2px;
+        background: #333;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    body.light-mode .top-progress-bg {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .top-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #4CAF50, #8BC34A);
+        width: 0%;
+        border-radius: 4px;
+        transition: width 0.5s;
+    }
+
+    .lektion-title {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .level-badge {
+        background: #333;
+        padding: 5px 15px;
+        border-radius: 10px;
+        font-size: 1rem;
+        vertical-align: middle;
+    }
+
+    body.light-mode .level-badge {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .percentage-box {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+    /* تم قرمز تیره */
+    .low-progress {
+        background: #2c1a1a;
+        color: #ff8a8a;
+    }
+
+    /* تم زرد تیره */
+    .medium-progress {
+        background: #2c291a;
+        color: #ffc88a;
+    }
+
+    /* تم سبز تیره */
+    .high-progress {
+        background: #1a2c22;
+        color: #8affbc;
+    }
+
+    /* تم قرمز روشن */
+    body.light-mode .low-progress {
+        background: linear-gradient(75deg, var(--red) 0%, var(--danger) 100%);
+        color: #2c1a1a;
+    }
+
+    /* تم زرد روشن */
+    body.light-mode .medium-progress {
+        background: linear-gradient(75deg, var(--orange) 0%, var(--yellow) 100%);
+        color: #2c291a;
+    }
+
+    /* تم سبز روشن */
+    body.light-mode .high-progress {
+        background: linear-gradient(75deg, var(--green) 0%, var(--cyan) 100%);
+        color: #1a2c22;
+    }
+
+    .arrow-btn {
+        background: #333;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+    }
+
+    body.light-mode .arrow-btn {
+        background: linear-gradient(75deg, var(--primary-light) 0%, var(--primary-medium) 100%);
+    }
+
+    body.light-mode .arrow-btn svg path {
+        fill: var(--primary-color);
+    }
+</style>
+
+<!-- اسکریپت‌ها -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const page_title = '{{ page_title }}';
+    const current_page = "{{ current_page }}";
+    $(document).ready(function () {
+        // بارگذاری آمار کلی
+        loadOverallStats();
+
+        // بارگذاری وضعیت هر درس
+        loadLessonsStatus();
+
+        // رویداد شروع مجدد
+        $('[data-role="course-restart"]').click(function (e) {
+            e.preventDefault();
+            if (confirm('آیا از شروع مجدد دوره اطمینان دارید؟ تمام پیشرفت‌های شما پاک خواهد شد.')) {
+                restartCourse();
+            }
+        });
+
+        // رویداد ترک دوره
+        $('[data-role="course-unenroll"]').click(function (e) {
+            e.preventDefault();
+            if (confirm('آیا از ترک دوره اطمینان دارید؟')) {
+                unenrollCourse();
+            }
+        });
+    });
+
+    function loadOverallStats() {
+        $.ajax({
+            url: '/api/get_overall_stats',
+            method: 'GET',
+            success: function (data) {
+                if (data.status === 'success') {
+                    $('#learned-words').text(data.learned_words);
+                    $('#total-words').text(data.total_words);
+                    $('#long-term-words').text(data.long_term_words);
+                    $('#ignored-words').text(data.ignored_words);
+                    $('#review-count').text(data.review_words);
+
+                    // به‌روزرسانی نوار پیشرفت
+                    const percentage = data.total_words > 0 ?
+                        Math.round((data.learned_words / data.total_words) * 100) : 0;
+                    $('#overall-progress').css('width', percentage + '%');
+                    $('.progress').attr('title', percentage + '%');
+                    $('.progress').attr('data-original-title', percentage + '%');
+
+                    // تغییر رنگ بر اساس درصد
+                    if (percentage >= 80) {
+                        $('#overall-progress').removeClass('bar-warning').addClass('bar-success');
+                    } else if (percentage >= 30) {
+                        $('#overall-progress').removeClass('bar-success').addClass('bar-warning');
+                    }
+                }
+            },
+            error: function () {
+                console.error('خطا در بارگذاری آمار کلی');
+            }
+        });
+    }
+
+    function loadLessonsStatus() {
+        $('.level').each(function () {
+            const lessonId = $(this).data('lesson-id');
+            const lessonElement = $(this);
+
+            $.ajax({
+                url: '/api/get_lesson_stats/' + lessonId,
+                method: 'GET',
+                success: function (data) {
+                    if (data.status === 'success') {
+                        // ۱. آپدیت پروگرس بار بالا (تعداد کلمات شروع شده)
+                        const topPercent = (data.words_started / data.total_words) * 100;
+                        $(`#fill-${lessonId}`).css('width', topPercent + '%');
+                        $(`#count-${lessonId}`).text(`${data.words_started}/${data.total_words}`);
+
+                        // ۲. آپدیت درصد یادگیری پایین (میانگین سطوح)
+                        $(`#percent-${lessonId}`).text(data.learning_percentage);
+
+                        const box = $(`#percent-box-${lessonId}`);
+                        if (data.learning_percentage >= 100) {
+                            box.addClass('high-progress').removeClass('low-progress');
+                            $(`#check-${lessonId}`).removeClass('d-none');
+                        } else if (data.learning_percentage > 50 && data.learning_percentage < 75) {
+                            box.addClass('medium-progress').removeClass('low-progress');
+                        } else {
+                            box.addClass('low-progress').removeClass('medium-progress');
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    function restartCourse() {
+        $.ajax({
+            url: '/api/restart_course',
+            method: 'POST',
+            success: function (data) {
+                if (data.status === 'success') {
+                    alert('دوره با موفقیت از نو شروع شد.');
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert('خطا در شروع مجدد دوره');
+            }
+        });
+    }
+
+    function unenrollCourse() {
+        $.ajax({
+            url: '/api/unenroll_course',
+            method: 'POST',
+            success: function (data) {
+                if (data.status === 'success') {
+                    alert('دوره با موفقیت ترک شد.');
+                    window.location.href = '/';
+                }
+            },
+            error: function () {
+                alert('خطا در ترک دوره');
+            }
+        });
+    }
+</script>
+{% endblock %}

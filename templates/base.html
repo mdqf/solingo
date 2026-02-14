@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}سولینگو{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block styles %}{% endblock %}
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% if current_page not in ['learn', 'weak-words-practice'] %}
+    <!-- هدر اصلی -->
+    <header class="navbar-modern">
+        <div class="navbar-container">
+            <!-- بخش لوگو -->
+            <div class="navbar-brand">
+                <a href="{{ url_for('index') }}" class="brand-link">
+                    <img src="{{ url_for('static', filename='img/Solingo_logo.svg') }}" alt="Solingo"
+                        class="brand-logo" />
+                </a>
+            </div>
+
+            <!-- دکمه همبرگر برای موبایل -->
+            <button class="navbar-toggler" id="navbarToggler" aria-label="منو">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+            </button>
+
+            <!-- منوی اصلی - دسکتاپ و موبایل -->
+            <div class="navbar-collapse" id="navbarCollapse">
+                {% if current_user.is_authenticated %}
+                <!-- لینک‌های ناوبری -->
+                <nav class="navbar-nav">
+                    <a href="{{ url_for('index') }}" class="nav-link {{ 'active' if current_page == 'home' else '' }}">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">صفحه اصلی</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="{{ url_for('lessons') }}"
+                        class="nav-link {{ 'active' if current_page == 'lessons' else '' }}">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text">درس‌ها</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="{{ url_for('leaderboard') }}"
+                        class="nav-link {{ 'active' if current_page == 'leaderboard' else '' }}">
+                        <span class="nav-icon">🏆</span>
+                        <span class="nav-text">لیگ</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="{{ url_for('shop') }}" class="nav-link {{ 'active' if current_page == 'shop' else '' }}">
+                        <span class="nav-icon">💎</span>
+                        <span class="nav-text">فروشگاه</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+
+                    <a href="{{ url_for('profile') }}"
+                        class="nav-link {{ 'active' if current_page == 'profile' else '' }}">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">پروفایل</span>
+                        <span class="nav-indicator"></span>
+                    </a>
+                </nav>
+                {% endif %}
+
+                <!-- بخش ابزارها و کاربر -->
+                <div class="navbar-tools">
+                    <!-- دکمه تغییر تم -->
+                    <button class="tool-button theme-toggle" onclick="toggleTheme()" aria-label="تغییر تم">
+                        <i class="fas fa-moon"></i>
+                        <span class="tool-text-mobile">تاریک/روشن</span>
+                    </button>
+
+                    <!-- نوتیفیکیشن -->
+                    <div class="tool-button notification-dropdown">
+                        <button class="notification-trigger" aria-label="اعلان‌ها">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                            <span class="tool-text-mobile">اعلان‌ها</span>
+                        </button>
+                        <div class="notification-menu">
+                            <div class="notification-header">
+                                <h4>اعلان‌ها</h4>
+                                <span class="notification-count">۳ جدید</span>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <div class="notification-icon">🏆</div>
+                                    <div class="notification-content">
+                                        <p>به لیگ ۹ صعود کردید!</p>
+                                        <span>۲ ساعت پیش</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="notification-icon">💎</div>
+                                    <div class="notification-content">
+                                        <p>۵۰ الماس دریافت کردید</p>
+                                        <span>دیروز</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="notification-footer">مشاهده همه</a>
+                        </div>
+                    </div>
+
+                    {% if current_user.is_authenticated %}
+                    <!-- پروفایل کاربر -->
+                    <div class="user-dropdown">
+                        <button class="user-trigger" aria-label="پروفایل کاربر">
+                            <div class="user-avatar">
+                                <span class="avatar-text">{{ current_user.username[0]|upper }}</span>
+                            </div>
+                            <div class="user-info-desktop">
+                                <span class="user-name">{{ current_user.username }}</span>
+                                <span class="user-streak">
+                                    <i class="fas fa-fire"></i>
+                                    {{ current_user.streak_days }}
+                                </span>
+                            </div>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </button>
+                        <div class="user-menu">
+                            <div class="user-menu-header">
+                                <div class="user-menu-avatar">
+                                    <span class="avatar-text">{{ current_user.username[0]|upper }}</span>
+                                </div>
+                                <div class="user-menu-info">
+                                    <span class="user-menu-name">{{ current_user.username }}</span>
+                                    <span class="user-menu-email">{{ current_user.email }}</span>
+                                </div>
+                            </div>
+                            <div class="user-menu-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">امتیاز</span>
+                                    <span class="stat-value">{{ current_user.xp }} XP</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">الماس</span>
+                                    <span class="stat-value">{{ current_user.gems }} 💎</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">لیگ</span>
+                                    <span class="stat-value">{{ current_user.league }}</span>
+                                </div>
+                            </div>
+                            <div class="user-menu-links">
+                                <a href="{{ url_for('profile') }}" class="menu-link">
+                                    <i class="fas fa-user"></i>
+                                    پروفایل من
+                                </a>
+                                <a href="{{ url_for('shop') }}" class="menu-link">
+                                    <i class="fas fa-shop"></i>
+                                    فروشگاه
+                                </a>
+                                <a href="{{ url_for('leaderboard') }}" class="menu-link">
+                                    <i class="fas fa-trophy"></i>
+                                    رتبه من
+                                </a>
+                                <div class="menu-divider"></div>
+                                <a href="{{ url_for('auth.logout') }}" class="menu-link logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    خروج
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- دکمه‌های ورود/ثبت‌نام -->
+                    <div class="auth-buttons">
+                        <a href="{{ url_for('auth.login') }}" class="btn-login">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>ورود</span>
+                        </a>
+                        <a href="{{ url_for('auth.register') }}" class="btn-register">
+                            <span>ثبت‌نام</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- منوی پایین برای موبایل -->
+    {% if current_user.is_authenticated %}
+    <nav class="mobile-bottom-nav">
+        <div class="mobile-nav-container">
+            <a href="{{ url_for('index') }}" class="mobile-nav-item {{ 'active' if current_page == 'home' else '' }}">
+                <span class="mobile-nav-icon">🏠</span>
+                <span class="mobile-nav-text">خانه</span>
+            </a>
+            <a href="{{ url_for('lessons') }}"
+                class="mobile-nav-item {{ 'active' if current_page == 'lessons' else '' }}">
+                <span class="mobile-nav-icon">📚</span>
+                <span class="mobile-nav-text">درس‌ها</span>
+            </a>
+            <a href="{{ url_for('leaderboard') }}"
+                class="mobile-nav-item {{ 'active' if current_page == 'leaderboard' else '' }}">
+                <span class="mobile-nav-icon">🏆</span>
+                <span class="mobile-nav-text">لیگ</span>
+            </a>
+            <a href="{{ url_for('shop') }}" class="mobile-nav-item {{ 'active' if current_page == 'shop' else '' }}">
+                <span class="mobile-nav-icon">💎</span>
+                <span class="mobile-nav-text">فروشگاه</span>
+            </a>
+            <a href="{{ url_for('profile') }}"
+                class="mobile-nav-item {{ 'active' if current_page == 'profile' else '' }}">
+                <span class="mobile-nav-icon">👤</span>
+                <span class="mobile-nav-text">پروفایل</span>
+            </a>
+        </div>
+    </nav>
+    {% endif %}
+    {% endif %}
+
+    <!-- محتوای اصلی -->
+    <main class="{{ 'main-content' if current_page not in ['learn', 'weak-words-practice'] else '' }}">
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash-message flash-{{ category }}">
+                <span class="material-icons">
+                    {% if category == 'success' %}check_circle{% endif %}
+                    {% if category == 'error' %}error{% endif %}
+                    {% if category == 'warning' %}warning{% endif %}
+                    {% if category == 'info' %}info{% endif %}
+                </span>
+                <span>{{ message }}</span>
+                <button class="flash-close" onclick="this.parentElement.remove()">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+    {% if current_page not in ['learn', 'weak-words-practice'] %}
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <img src="{{ url_for('static', filename='img/Solingo_logo.svg') }}" alt="logo" />
+                    </div>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">محصول</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}"
+                                    class="footer__link">امکانات</a>
+                            </li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}"
+                                    class="footer__link">تعرفه‌ها</a></li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}" class="footer__link">درباره
+                                    ما</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">منابع</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}"
+                                    class="footer__link">بلاگ</a>
+                            </li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}"
+                                    class="footer__link">راهنما</a>
+                            </li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}" class="footer__link">تماس با
+                                    ما</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__section">
+                        <h3 class="footer__section-title">قوانین</h3>
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}" class="footer__link">حریم
+                                    خصوصی</a></li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}" class="footer__link">قوانین
+                                    استفاده</a></li>
+                            <li class="footer__item"><a href="{{ url_for('leaderboard') }}"
+                                    class="footer__link">کوکی‌ها</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__section">
+                        <img class="footer__cert" src="{{ url_for('static', filename='img/cert/ecunion.webp') }}"
+                            alt="ecunion" />
+                        <img class="footer__cert" src="{{ url_for('static', filename='img/cert/enamad.png') }}"
+                            alt="enamad" />
+                        <img class="footer__cert" src="{{ url_for('static', filename='img/cert/samandehi.png') }}"
+                            alt="samandehi" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 سولینگو. تمامی حقوق محفوظ است.</p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-icon">
+                        <span class="material-icons">telegram</span>
+                    </a>
+                    <a href="#" class="footer__social-icon">
+                        <span class="material-icons">instagram</span>
+                    </a>
+                    <a href="#" class="footer__social-icon">
+                        <span class="material-icons">twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endif %}
+
+    <script>
+        // تابع تغییر حالت روشن/تیره
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.querySelector('.theme-toggle i');
+
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            // در تابع toggleTheme، بعد از تغییر کلاس light-mode این کد را اضافه کنید:
+            if (body.classList.contains('light-mode')) {
+                // تغییر رنگ stroke آیکون‌ها در منوی دسکتاپ
+                document.querySelectorAll('.nav-button:not(.active) svg path').forEach(path => {
+                    path.setAttribute('stroke', '#6c757d');
+                });
+
+                // تغییر رنگ stroke آیکون‌ها در منوی موبایل
+                document.querySelectorAll('.button-nav-wrapper .button:not(.active) svg path').forEach(path => {
+                    path.setAttribute('stroke', '#6c757d');
+                });
+            } else {
+                // برگرداندن رنگ stroke به حالت تیره
+                document.querySelectorAll('.nav-button:not(.active) svg path').forEach(path => {
+                    path.setAttribute('stroke', '#AEAEA2');
+                });
+
+                document.querySelectorAll('.button-nav-wrapper .button:not(.active) svg path').forEach(path => {
+                    path.setAttribute('stroke', '#AEAEA2');
+                });
+            }
+        }
+
+        // بارگذاری حالت ذخیره شده
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('.theme-toggle i');
+
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+
+
+
+        // تابع تغییر صفحه
+        function changePage(page) {
+            const pageTitle = document.getElementById('pageTitle');
+            const desktopNavButtons = document.querySelectorAll('.nav-button');
+            const mobileNavButtons = document.querySelectorAll('.button-nav-wrapper .button');
+
+            // به‌روزرسانی عنوان صفحه
+            if (page === '') {
+                pageTitle.textContent = 'صفحه اصلی';
+            } else if (page === 'lessons') {
+                pageTitle.textContent = 'درس‌ها';
+            } else if (page === 'leaderboard') {
+                pageTitle.textContent = 'لیگ';
+            } else if (page === 'profile') {
+                pageTitle.textContent = 'پروفایل';
+            }
+
+            // به‌روزرسانی وضعیت فعال در منوی دسکتاپ
+            desktopNavButtons.forEach(button => {
+                button.classList.remove('active');
+                const svgPaths = button.querySelectorAll('svg path');
+                svgPaths.forEach(path => {
+                    if (button.textContent.includes(pageTitle.textContent)) {
+                        path.setAttribute('stroke', '#FEB885');
+                    } else {
+                        path.setAttribute('stroke', '#AEAEA2');
+                    }
+                });
+            });
+
+            // به‌روزرسانی وضعیت فعال در منوی موبایل
+            mobileNavButtons.forEach(button => {
+                button.classList.remove('active');
+                const svgPaths = button.querySelectorAll('svg path');
+                svgPaths.forEach(path => {
+                    path.setAttribute('stroke', '#AEAEA2');
+                });
+            });
+
+            // فعال کردن دکمه مربوطه در منوی دسکتاپ
+            desktopNavButtons.forEach(button => {
+                if (button.textContent.includes(pageTitle.textContent)) {
+                    button.classList.add('active');
+                }
+            });
+
+            // فعال کردن دکمه مربوطه در منوی موبایل
+            mobileNavButtons.forEach(button => {
+                if (button.querySelector('.button-text').textContent === pageTitle.textContent) {
+                    button.classList.add('active');
+                    const svgPaths = button.querySelectorAll('svg path');
+                    svgPaths.forEach(path => {
+                        path.setAttribute('stroke', '#FEB885');
+                    });
+                }
+            });
+
+            console.log('تغییر صفحه به: ' + pageTitle.textContent);
+        }
+
+        // تنظیم وضعیت اولیه
+        document.addEventListener('DOMContentLoaded', function () {
+            // تنظیم وضعیت اولیه برای منوی دسکتاپ
+            const desktopNavButtons = document.querySelectorAll('.nav-button');
+            desktopNavButtons.forEach(button => {
+                const svgPaths = button.querySelectorAll('svg path');
+                if (button.classList.contains('active')) {
+                    svgPaths.forEach(path => {
+                        path.setAttribute('stroke', '#FEB885');
+                    });
+                } else {
+                    svgPaths.forEach(path => {
+                        path.setAttribute('stroke', '#AEAEA2');
+                    });
+                }
+            });
+
+            // تنظیم وضعیت اولیه برای منوی موبایل
+            const mobileNavButtons = document.querySelectorAll('.button-nav-wrapper .button');
+            mobileNavButtons.forEach(button => {
+                const svgPaths = button.querySelectorAll('svg path');
+                if (button.classList.contains('active')) {
+                    svgPaths.forEach(path => {
+                        path.setAttribute('stroke', '#FEB885');
+                    });
+                } else {
+                    svgPaths.forEach(path => {
+                        path.setAttribute('stroke', '#AEAEA2');
+                    });
+                }
+            });
+        });
+
+        // JavaScript برای قابلیت‌های پیشرفته
+        document.addEventListener('DOMContentLoaded', function () {
+            const flashMessages = document.querySelectorAll('.flash-message');
+
+            flashMessages.forEach(message => {
+                // بستن خودکار بعد از 5 ثانیه
+                setTimeout(() => {
+                    message.classList.add('hiding');
+                    setTimeout(() => message.remove(), 300);
+                }, 5000);
+
+                // بستن با کلیک خارج
+                message.addEventListener('click', function (e) {
+                    if (!e.target.closest('.flash-close')) {
+                        this.classList.add('hiding');
+                        setTimeout(() => this.remove(), 300);
+                    }
+                });
+            });
+        });
+
+        // کنترل منوی همبرگر
+        document.addEventListener('DOMContentLoaded', function () {
+            const Nav = document.querySelector('.navbar-modern');
+            const toggler = document.getElementById('navbarToggler');
+            const collapse = document.getElementById('navbarCollapse');
+
+            if (toggler && collapse) {
+                toggler.addEventListener('click', function () {
+                    Nav.classList.toggle('h-100');
+                    this.classList.toggle('active');
+                    collapse.classList.toggle('show');
+                });
+            }
+
+            // بستن منو با کلیک روی لینک‌ها
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) {
+                        Nav.classList.remove('h-100');
+                        toggler.classList.remove('active');
+                        collapse.classList.remove('show');
+                    }
+                });
+            });
+
+            // بستن منو با کلیک خارج
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth <= 768) {
+                    if (!event.target.closest('.navbar-collapse') &&
+                        !event.target.closest('.navbar-toggler')) {
+                        toggler.classList.remove('active');
+                        collapse.classList.remove('show');
+                    }
+                }
+            });
+
+            // تنظیم padding-bottom بر اساس نمایش منوی موبایل
+            function adjustPadding() {
+                const mobileNav = document.querySelector('.mobile-bottom-nav');
+                if (mobileNav && window.innerWidth <= 768) {
+                    document.body.style.paddingBottom = mobileNav.offsetHeight + 'px';
+                } else {
+                    document.body.style.paddingBottom = '0';
+                }
+            }
+
+            adjustPadding();
+            window.addEventListener('resize', adjustPadding);
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+
+</html>

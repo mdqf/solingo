@@ -1,0 +1,759 @@
+{% extends "base.html" %}
+
+{% block title %}ثبت‌نام در Solingo{% endblock %}
+
+{% block styles %}
+<style>
+/* استایل‌های صفحه ثبت‌نام */
+.register-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 60px 20px;
+    font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .register-page {
+    background: linear-gradient(135deg, #6b8cff 0%, #a37ad6 100%);
+}
+
+.register-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.register-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* کارت ثبت‌نام */
+.register-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 48px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .register-card {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.register-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* هدر ثبت‌نام */
+.register-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.register-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 18px 40px rgba(102, 126, 234, 0.6);
+    }
+}
+
+.register-icon i {
+    font-size: 40px;
+    color: white;
+}
+
+.register-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.register-subtitle {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+body.light-mode .register-subtitle {
+    color: #4b5563;
+}
+
+/* فرم ثبت‌نام */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.light-mode .form-label {
+    color: #1f2937;
+}
+
+.form-label i {
+    color: #667eea;
+    font-size: 16px;
+}
+
+.required-star {
+    color: #ef4444;
+    font-size: 14px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    direction: rtl;
+}
+
+body.light-mode .form-input {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+}
+
+.form-input:focus {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.input-message {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 6px;
+    padding-right: 16px;
+}
+
+/* سلکتور هدف */
+.goal-selector {
+    position: relative;
+}
+
+.goal-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #1f2937;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 16px center;
+    padding-left: 48px;
+}
+
+.goal-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.goal-message {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 8px;
+    padding-right: 16px;
+}
+
+/* چک‌باکس شرایط */
+.terms-group {
+    margin: 16px 0;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.terms-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.terms-checkbox:hover input ~ .checkmark {
+    border-color: #667eea;
+    background: #f0f3ff;
+}
+
+.terms-checkbox input:checked ~ .checkmark {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: #667eea;
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.terms-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.terms-text {
+    color: #374151;
+    font-size: 15px;
+}
+
+.terms-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.terms-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* دکمه ثبت‌نام */
+.register-button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 18px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.register-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.register-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+}
+
+.register-button:hover::before {
+    left: 100%;
+}
+
+.register-button i {
+    font-size: 20px;
+}
+
+/* لینک ورود */
+.login-link {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.login-link p {
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.login-button {
+    display: inline-block;
+    padding: 12px 32px;
+    background: transparent;
+    border: 2px solid #667eea;
+    border-radius: 40px;
+    color: #667eea;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* کارت مزایا */
+.benefits-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.benefits-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.benefits-header i {
+    font-size: 28px;
+    color: #ffb347;
+    animation: starGlow 2s infinite;
+}
+
+@keyframes starGlow {
+    0%, 100% { 
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 179, 71, 0.5);
+    }
+    50% { 
+        transform: scale(1.1);
+        text-shadow: 0 0 20px rgba(255, 179, 71, 0.8);
+    }
+}
+
+.benefits-header h5 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #374151;
+    margin: 0;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateX(-4px);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.benefit-item i {
+    color: #10b981;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.benefit-item span {
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* استایل برای اعتبارسنجی */
+.form-input.error {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.form-input.error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* انیمیشن‌های اضافه */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .register-page {
+        padding: 40px 16px;
+    }
+    
+    .register-card {
+        padding: 32px 24px;
+    }
+    
+    .register-title {
+        font-size: 28px;
+    }
+    
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 24px 20px;
+    }
+    
+    .register-icon {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .register-icon i {
+        font-size: 32px;
+    }
+    
+    .register-title {
+        font-size: 24px;
+    }
+    
+    .form-input {
+        padding: 12px 14px;
+    }
+    
+    .register-button {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+    
+    .benefits-card {
+        padding: 24px 20px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="register-page">
+    <div class="register-container">
+        <!-- کارت اصلی ثبت‌نام -->
+        <div class="register-card">
+            <div class="register-header">
+                <div class="register-icon">
+                    <i class="fa fa-person-plus"></i>
+                </div>
+                <h2 class="register-title">ایجاد حساب کاربری جدید</h2>
+                <p class="register-subtitle">به Solingo خوش آمدید! 🎉</p>
+            </div>
+            
+            <form class="register-form" method="POST" action="{{ url_for('auth.register') }}">
+                <!-- نام کاربری و ایمیل -->
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="username" class="form-label">
+                            <i class="fa fa-person"></i>
+                            نام کاربری <span class="required-star">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" 
+                                   id="username" 
+                                   name="username" 
+                                   class="form-input" 
+                                   placeholder="نام کاربری خود را وارد کنید"
+                                   required 
+                                   minlength="3">
+                            <div class="input-message">حداقل ۳ کاراکتر</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fa fa-envelope"></i>
+                            ایمیل <span class="required-star">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   class="form-input" 
+                                   placeholder="example@gmail.com"
+                                   required>
+                            <div class="input-message">ایمیل معتبر وارد کنید</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- رمز عبور و تکرار -->
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <i class="fa fa-lock"></i>
+                            رمز عبور <span class="required-star">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="password" 
+                                   id="password" 
+                                   name="password" 
+                                   class="form-input" 
+                                   placeholder="رمز عبور خود را وارد کنید"
+                                   required 
+                                   minlength="6">
+                            <div class="input-message">حداقل ۶ کاراکتر</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm_password" class="form-label">
+                            <i class="fa fa-lock-fill"></i>
+                            تکرار رمز عبور <span class="required-star">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="password" 
+                                   id="confirm_password" 
+                                   name="confirm_password" 
+                                   class="form-input" 
+                                   placeholder="رمز عبور را تکرار کنید"
+                                   required>
+                            <div class="input-message">تکرار رمز عبور</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- هدف روزانه -->
+                <div class="form-group">
+                    <label for="daily_goal" class="form-label">
+                        <i class="fa fa-bullseye"></i>
+                        هدف روزانه یادگیری
+                    </label>
+                    <div class="goal-selector">
+                        <select id="daily_goal" name="daily_goal" class="goal-select">
+                            <option value="5">۵ کلمه در روز - شروع آرام 🌱</option>
+                            <option value="10" selected>۱۰ کلمه در روز - متعادل 🌿</option>
+                            <option value="15">۱۵ کلمه در روز - پیشرفت سریع 🌳</option>
+                            <option value="20">۲۰ کلمه در روز - حرفه‌ای 🌲</option>
+                        </select>
+                        <div class="goal-message">تعداد کلماتی که روزانه می‌خواهید یاد بگیرید</div>
+                    </div>
+                </div>
+                
+                <!-- شرایط و قوانین -->
+                <div class="terms-group">
+                    <label class="terms-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkmark"></span>
+                        <span class="terms-text">
+                            با <a href="#" class="terms-link">قوانین و شرایط</a> سایت موافقم
+                        </span>
+                    </label>
+                </div>
+                
+                <!-- دکمه ثبت‌نام -->
+                <button type="submit" class="register-button">
+                    <i class="fa fa-person-plus"></i>
+                    ایجاد حساب کاربری
+                </button>
+                
+                <!-- لینک ورود -->
+                <div class="login-link">
+                    <p>قبلاً حساب کاربری دارید؟</p>
+                    <a href="{{ url_for('auth.login') }}" class="login-button">
+                        وارد شوید
+                    </a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- کارت مزایا -->
+        <div class="benefits-card">
+            <div class="benefits-header">
+                <i class="fa fa-award"></i>
+                <h5>مزایای عضویت در Solingo</h5>
+            </div>
+            <ul class="benefits-list">
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>دسترسی رایگان به هزاران کلمه آلمانی</span>
+                </li>
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>سیستم هوشمند تکرار فاصله‌دار</span>
+                </li>
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>تمرین‌های متنوع و جذاب</span>
+                </li>
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>پیگیری پیشرفت با نمودارهای دقیق</span>
+                </li>
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>رقابت در لیگ‌های هفتگی</span>
+                </li>
+                <li class="benefit-item">
+                    <i class="fa fa-check-circle-fill"></i>
+                    <span>جامعه زبان‌آموزان مشتاق</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    // بررسی تطابق رمز عبور
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+            e.preventDefault();
+            alert('رمز عبور و تکرار آن مطابقت ندارند!');
+            return false;
+        }
+        
+        if (password.length < 6) {
+            e.preventDefault();
+            alert('رمز عبور باید حداقل ۶ کاراکتر باشد!');
+            return false;
+        }
+        
+        return true;
+    });
+</script>
+{% endblock %}
+{% endblock %}
