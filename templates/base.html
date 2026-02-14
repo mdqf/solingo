@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    {% if current_page not in ['learn', 'weak-words-practice'] %}
+    {% if current_page not in ['learn', 'weak-words-practice', 'login', 'register'] %}
     <!-- هدر اصلی -->
     <header class="navbar-modern">
         <div class="navbar-container">
@@ -76,11 +76,11 @@
 
                 <!-- بخش ابزارها و کاربر -->
                 <div class="navbar-tools">
-                    <!-- دکمه تغییر تم -->
+                    <!-- دکمه تغییر تم
                     <button class="tool-button theme-toggle" onclick="toggleTheme()" aria-label="تغییر تم">
                         <i class="fas fa-moon"></i>
                         <span class="tool-text-mobile">تاریک/روشن</span>
-                    </button>
+                    </button> -->
 
                     <!-- نوتیفیکیشن -->
                     <div class="tool-button notification-dropdown">
@@ -251,7 +251,7 @@
 
         {% block content %}{% endblock %}
     </main>
-    {% if current_page not in ['learn', 'weak-words-practice'] %}
+    {% if current_page not in ['learn', 'weak-words-practice', 'login', 'register'] %}
     <!-- فوتر -->
     <footer class="footer">
         <div class="footer__container">

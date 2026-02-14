@@ -21,7 +21,7 @@ def login():
             flash(f'خوش آمدید!', 'success')
             return redirect(url_for('lessons'))
         flash('نام کاربری یا رمز عبور اشتباه است', 'error')
-    return render_template('auth/login.html')
+    return render_template('auth/login.html', current_page='login')
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -39,7 +39,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('auth.login'))
-    return render_template('auth/register.html')
+    return render_template('auth/register.html', current_page='register')
 
 
 @auth.route('/logout')
